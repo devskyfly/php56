@@ -1,0 +1,14 @@
+{
+	"name" : "devskyfly/php56",
+	"description" : "Represent core php function and constants by namespaces and classes like static members.",
+	"type" : "library",
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Ivan",
+			"email" : "devskyfly@gmail.com"
+		}
+	],
+	"require" : {
+		"php" : ">=5.6"
+	}
+}
