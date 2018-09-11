@@ -1,5 +1,5 @@
 <?php
-namespace devskyfly\php56\system;
+namespace devskyfly\php56\core;
 
 class GarbageCollector
 {

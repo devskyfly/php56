@@ -1,5 +1,5 @@
 <?php
-namespace devskyfly\php56\system;
+namespace devskyfly\php56\core;
 
 class Memory
 {
@@ -15,7 +15,7 @@ class Memory
     /**
      * Return max memory usage in bytes
      */
-    public static function getMax(true)
+    public static function getMax()
     {
         return memory_get_peak_usage(true);
     }

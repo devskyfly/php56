@@ -1,5 +1,5 @@
 <?php
-namespace deskyfly\php56\types;
+namespace devskyfly\php56\types;
 
 class Boolean
 {
