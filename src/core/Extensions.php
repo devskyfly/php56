@@ -3,14 +3,26 @@ namespace devskyfly\php56\core;
 
 class Extensions
 {
-    public static function dowload($library)
+    /**
+     * Load neaded extension
+     * 
+     * @param string $extension
+     * @return boolean
+     */
+    public static function dowload($extension)
     {
-        return dl();
+        return dl($extension);
     }
     
-    public static function isLoaded($library)
+    /**
+     * Define whether extension is loaded
+     * 
+     * @param unknown $library
+     * @return boolean
+     */
+    public static function isLoaded($extension)
     {
-        return extension_loaded($library);
+        return extension_loaded($extension);
     }
     
     /**
