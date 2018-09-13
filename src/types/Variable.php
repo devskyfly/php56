@@ -1,6 +1,12 @@
 <?php
 namespace devskyfly\php56\types;
 
+/**
+ * 
+ * @author devskyfly
+ * Use isset() to check if variable exists
+ * Use unset() to delete variable
+ */
 class Variable
 {
     /**
@@ -28,8 +34,9 @@ class Variable
     /**
      * Define whether the variable is scalar
      * 
-     * Scalar is a simple type. Array, object and resource are not scalar
+     * Scalar is a simple type. Array, object, null and resource are not scalar
      * @param mixed $val
+     * @since PHP >=7.3
      * @return boolean
      */
     public static function isScalar($val)
@@ -41,6 +48,7 @@ class Variable
      * Define whether the variable is iterable variable
      *
      * @param mixed $val
+     * @since PHP >=7.3
      * @return boolean
      */
     public static function isIterable($val)
@@ -73,7 +81,7 @@ class Variable
     /**
      * Return the type of PHP variable
      * @param mixed $val
-     * @return string
+     * @return string boolean, integer, double, string, array, object, resource, NULL, unknown type
      */
     public static function getType($val)
     {
@@ -91,16 +99,6 @@ class Variable
         return settype($val, $type);
     }
     
-    /**
-     * Check whether the variable exists
-     *
-     * @param mixed $val
-     * @return boolean
-     */
-    public static function isItSet($val)
-    {
-        return isset($val);
-    }
     
     /**
      * Remove assotion between variable name and its reference

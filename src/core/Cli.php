@@ -33,7 +33,7 @@ class Cli
      */
     public static function getParams($keys_list, $dbl_keys_list)
     {
-        if(Variable::isItSet($dbl_keys_list))
+        if(isset($dbl_keys_list))
         {
             return getopt($keys_list);
         }else{

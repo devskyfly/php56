@@ -52,12 +52,12 @@ class Errors
     {
         $result=false;
         
-        if(Variable::isItSet($destination))
+        if(isset($destination))
         {
             $result=error_log();
         }
         
-        if(Variable::isItSet($extra_headers))
+        if(isset($extra_headers))
         {
             $result=error_log();
         }

@@ -13,7 +13,10 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"devskyfly\\php56" : "src"
+			"devskyfly\\php56\\" : "src"
 		}
+	},
+	"require-dev": {
+		"codeception/codeception": "^2.4"
 	}
 }
