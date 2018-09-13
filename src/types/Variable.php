@@ -27,6 +27,8 @@ class Variable
     
     /**
      * Define whether the variable is scalar
+     * 
+     * Scalar is a simple type. Array, object and resource are not scalar
      * @param mixed $val
      * @return boolean
      */

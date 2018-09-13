@@ -42,4 +42,33 @@ class Script
     {
         return getlastmod();
     }
+
+    /**
+     * Return current script number
+     * @return string
+     */
+    public static function getCurrentLineNmb()
+    {
+        return __LINE__;
+    }
+    
+    /**
+     * Return current script full path
+     * @return string
+     */
+    public static function getCurrentScriptPath()
+    {
+        return __FILE__;
+    }
+    
+    /**
+     * Return current script full path
+     * @return string
+     */
+    public static function getCurrentScriptDir()
+    {
+        return __DIR__;
+    }
+    
+    
 }

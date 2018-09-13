@@ -26,7 +26,7 @@ class Cli
 
 
     /**
-     * Return parems arrray passed to script
+     * Return params array passed to script
      * @param string $keys_list [a-z|A-Z|0-9] "ij:k::" - "i" without value, "j" require value, "k" does not require value 
      * @param array $dbl_keys_list [a-z|A-Z|0-9] ["i", "j:", "k::"] - "i" without value, "j" require value, "k" does not require value 
      * @return array | false
@@ -40,5 +40,25 @@ class Cli
             return getopt($keys_list,$dbl_keys_list);
         }
         
+    }
+
+    /**
+     * Return number of arguments passed to script
+     * @return int
+     */
+    public static function getArgumentsNmb()
+    {
+        return $argc;
+    }
+    
+    /**
+     * Return arguments passed to script in array
+     * 
+     * Zero index of array is script name. Other indexes are arguments passed to script
+     * @return array
+     */
+    public static function getArguments()
+    {
+        return $argv;
     }
 }

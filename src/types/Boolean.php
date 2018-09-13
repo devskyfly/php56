@@ -21,7 +21,7 @@ class Boolean
      * @param mixed $val
      * @return boolean
      */
-    public static function toBool($val)
+    public static function toBoolean($val)
     {
         return boolval($val);    
     }
