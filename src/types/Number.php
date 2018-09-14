@@ -5,7 +5,8 @@ class Number
 {   
     const NAN=NaN;
     const EPSILON=0.00001;
-    
+    const INT_SIZE=PHP_INT_SIZE;
+    const INT_MAX=PHP_INT_MAX;
     /**
      * 
      * @param number $val_1

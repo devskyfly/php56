@@ -20,9 +20,9 @@ class Server
      * @param string $var
      * @return array | false
      */
-    public static function getEnv($var)
+    public static function getEnv($var="")
     {
-        if(Variable::isItSet($var))
+        if(Variable::isEmpty($var))
         {
             return getenv($var);
         }else{
@@ -109,7 +109,7 @@ class Server
     
     protected static function getParam($array,$param_name,$defualt_value)
     {
-        if(Variable::isItSet($array[$param_name])){
+        if(isset($array[$param_name])){
             return $array[$param_name];
         }else{
             return $defualt_value;

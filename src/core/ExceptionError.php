@@ -3,17 +3,15 @@ namespace devskyfly\php56\core;
 
 use devskyfly\php56\types\Variable;
 
-class Errors
+class ExceptionError
 {
     const E_ERROR=E_ERROR;
     const E_WARNING=E_WARNING;
     const E_PARSE=E_PARSE;
     const E_NOTICE=E_NOTICE;
-    const E_NOTICE=E_NOTICE;
     const E_CORE_ERROR=E_CORE_ERROR;
     const E_CORE_WARNING=E_CORE_WARNING;
     const E_COMPILE_ERROR=E_COMPILE_ERROR;
-    const E_COMPILE_WARNING=E_COMPILE_WARNING;
     const E_COMPILE_WARNING=E_COMPILE_WARNING;
     const E_USER_ERROR=E_USER_ERROR;
     const E_USER_WARNING=E_USER_WARNING;

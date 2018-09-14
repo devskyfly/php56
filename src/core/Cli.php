@@ -31,9 +31,9 @@ class Cli
      * @param array $dbl_keys_list [a-z|A-Z|0-9] ["i", "j:", "k::"] - "i" without value, "j" require value, "k" does not require value 
      * @return array | false
      */
-    public static function getParams($keys_list, $dbl_keys_list)
+    public static function getParams($keys_list, $dbl_keys_list="")
     {
-        if(isset($dbl_keys_list))
+        if(Variable::isEmpty($dbl_keys_list))
         {
             return getopt($keys_list);
         }else{
