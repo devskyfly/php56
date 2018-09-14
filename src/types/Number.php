@@ -89,22 +89,42 @@ class Number
     /**
      * Convert value to double
      * @param mixed $val
-     * @throws \InvalidArgumentException
      * @return number
      */
     public static function toDouble($val)
     {
-        if(!self::isNumeric($val)) throw new \InvalidArgumentException("Param val is not numeric.");
         return floatval($val);
     }
     
     /**
      * Convert value to integer
      * @param mixed $val
-     * @throws \InvalidArgumentException
      * @return number
      */
     public static function toInteger($val)
+    {
+        return intval($val);
+    }
+    
+    /**
+     * Convert value to double in strict mode
+     * @param mixed $val
+     * @throws \InvalidArgumentException
+     * @return number
+     */
+    public static function toDoubleStrict($val)
+    {
+        if(!self::isNumeric($val)) throw new \InvalidArgumentException("Param val is not numeric.");
+        return floatval($val);
+    }
+    
+    /**
+     * Convert value to integer in strict mode
+     * @param mixed $val
+     * @throws \InvalidArgumentException
+     * @return number
+     */
+    public static function toIntegerStrict($val)
     {
         if(!self::isNumeric($val)) throw new \InvalidArgumentException("Param val is not numeric.");
         return intval($val);

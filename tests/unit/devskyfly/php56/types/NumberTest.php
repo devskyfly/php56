@@ -93,10 +93,9 @@ class NumberTest extends \Codeception\Test\Unit
         $val=1;
         $this->assertTrue(Number::isEqual(Number::toDouble($val), 1.0));
         
-        $this->expectException(\InvalidArgumentException::class);
-        
         $val="str";
         $result=Number::toDouble($val);
+        $this->assertEquals(0, $result);
     }
     
     public function testToInt()
@@ -107,9 +106,39 @@ class NumberTest extends \Codeception\Test\Unit
         $val=1;
         $this->assertTrue(Number::isEqual(Number::toInteger($val), 1.0));
         
-        $this->expectException(\InvalidArgumentException::class);
         
         $val="str";
         $result=Number::toInteger($val);
+        $this->assertEquals(0, $result);
+    }
+    
+    public function testToDoubleStrict()
+    {
+        $val="1.5";
+        $this->assertTrue(Number::isEqual(Number::toDoubleStrict($val), 1.5));
+        
+        $val=1;
+        $this->assertTrue(Number::isEqual(Number::toDoubleStrict($val), 1.0));
+        
+        $this->expectException(\InvalidArgumentException::class);
+        
+        $val="str";
+        $result=Number::toDoubleStrict($val);
+    }
+    
+    
+    
+    public function testToIntStrict()
+    {
+        $val="1";
+        $this->assertTrue(Number::isEqual(Number::toIntegerStrict($val), 1));
+        
+        $val=1;
+        $this->assertTrue(Number::isEqual(Number::toIntegerStrict($val), 1.0));
+        
+        $this->expectException(\InvalidArgumentException::class);
+        
+        $val="str";
+        $result=Number::toIntegerStrict($val);
     }
 }
