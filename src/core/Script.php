@@ -54,6 +54,7 @@ class Script
     
     /**
      * Return current script full path
+     * 
      * @return string
      */
     public static function getCurrentScriptPath()
@@ -63,6 +64,7 @@ class Script
     
     /**
      * Return current script full path
+     * 
      * @return string
      */
     public static function getCurrentScriptDir()

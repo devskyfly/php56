@@ -4,8 +4,10 @@ namespace devskyfly\php56\types;
 /**
  * 
  * @author devskyfly
- * Use isset() to check if variable exists
- * Use unset() to delete variable
+ * 
+ * Because its imposible to redeclarate:
+ * -use isset() to check if variable exists
+ * -use unset() to delete variable
  */
 class Variable
 {
