@@ -1,8 +1,26 @@
 <?php
 namespace devskyfly\php56\core;
 
+use devskyfly\php56\types\String;
+
 class Fnc
 {
+    
+    /**
+     * Define whether the function exists
+     * 
+     * @param string $function
+     * @throws \InvalidArgumentException
+     * @return boolean
+     */
+    public function exists($function)
+    {
+        if(!String::isString($function)){
+            throw new \InvalidArgumentException('Param $function is not string type.');
+        }
+        return function_exists($function_name);
+    }
+    
     /**
      * Return number of arguments passed to function
      * @return int
