@@ -146,6 +146,30 @@ class Arr
     }
     
     /**
+     * Create array using range
+     * 
+     * @param integer $start
+     * @param integer $end
+     * @param number $step
+     * @throws \InvalidArgumentException
+     * @return array
+     */
+    public static function createArrayByRange($start,$end,$step=1)
+    {
+        if(!Number::isInteger($start)){
+            throw new \InvalidArgumentException('Param $start is not array type.');
+        }
+        if(!Number::isInteger($end)){
+            throw new \InvalidArgumentException('Param $end is not array type.');
+        }
+        if(!Number::isInteger($step)){
+            throw new \InvalidArgumentException('Param $step is not array type.');
+        }
+        
+        return range($start,$end,$step);
+    }
+    
+    /**
      * Create array by filling it's items
      * 
      * @param integer $start
@@ -154,7 +178,7 @@ class Arr
      * @throws \InvalidArgumentException
      * @return array
      */
-    public static function getFilledValues($start,$end,$value)
+    public static function createFilledByValues($start,$end,$value)
     {
         if(!Number::isInteger($start)){
             throw new \InvalidArgumentException('Param $start is not array type.');
