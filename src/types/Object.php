@@ -9,7 +9,7 @@ class Object
      */
     public static function getClassName($object)
     {
-        if(!static::isObject()){
+        if(!static::isObject($object)){
             throw new \InvalidArgumentException('Param $object is not object type.');
         }
         return get_class($object);
