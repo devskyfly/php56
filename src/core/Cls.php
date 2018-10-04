@@ -2,44 +2,19 @@
 namespace devskyfly\php56\core;
 
 use devskyfly\php56\types\Variable;
+
+/**
+ * Can't redeclarate using magic constants like:
+ *  __TRAIT__
+ *  __METHOD__
+ *  __NAMESPACE__
+ *  __CLASS__
+ * Use them separatly.
+ * @author devskyfly
+ *
+ */
  class Cls
  {
-     /**
-      * Return class name including namespace
-      * @return string
-      */
-     public static function getClassName()
-     {
-         return __CLASS__;
-     }
-     
-     /**
-      * Return class method name
-      * @return string
-      */
-     public static function getMethodName()
-     {
-         return __METHOD__;
-     }
-     
-     /**
-      * Return namespace name of current namespace
-      * @return string
-      */
-     public static function getNamespaceName()
-     {
-         return __NAMESPACE__;
-     }
-     
-     /**
-      * Return trait name including namespace
-      * @return string
-      */
-     public static function getTraitName()
-     {
-         return __TRAIT__;
-     }
-     
      /**
       * Check if trait exists
       *

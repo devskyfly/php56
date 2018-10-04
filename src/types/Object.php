@@ -4,6 +4,18 @@ namespace devskyfly\php56\types;
 class Object
 {
     /**
+     * Return class name including namespace
+     * @return string
+     */
+    public static function getClassName($object)
+    {
+        if(!static::isObject()){
+            throw new \InvalidArgumentException('Param $object is not object type.');
+        }
+        return get_class($object);
+    }
+    
+    /**
      * Define whether the variable is boolean
      *
      * @param mixed $val
