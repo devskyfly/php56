@@ -95,4 +95,15 @@ use devskyfly\php56\types\Variable;
          if(Variable::isNull($result)) throw new \Exception("Property existing check error.");
          return $result;
      }
+    
+     /**
+      * Define whether the class or object is sub class of target class
+      *
+      * @param object|string $object - object or class name
+      * @param string $class_name
+      */
+     public static function isSubClassOf($object,$class_name)
+     {
+         return is_subclass_of($object, $class_name);
+     }
  }

@@ -26,4 +26,14 @@ class Object
         return is_a($object,$class_name);
     }
     
+    /**
+     * Define whether the class or object is sub class of target class
+     *
+     * @param object|string $object - object or class name
+     * @param string $class_name
+     */
+    public static function isSubClassOf($object,$class_name)
+    {
+        return is_subclass_of($object, $class_name);
+    }
 }
