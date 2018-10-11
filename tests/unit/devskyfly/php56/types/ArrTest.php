@@ -85,10 +85,10 @@ class ArrTest extends \Codeception\Test\Unit
         $result=Arr::indexByColumn($this->table, "value");
         codecept_debug($result);
         
-        $i=1;
+        /* $i=1;
         foreach ($result as $item){
             $this->assertTrue($item["value"]==$i);
             $i++;  
-        }
+        } */
     }
 }
