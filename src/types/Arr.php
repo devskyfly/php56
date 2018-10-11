@@ -21,8 +21,8 @@ class Arr
      * Return array size
      *
      * @param array $array
-     * @throws \Exception
-     * @return number
+     * @throws \InvalidArgumentException
+     * @return integer
      */
     public static function getSize($array)
     {
@@ -49,6 +49,7 @@ class Arr
     /**
      * Return chuncked array
      * 
+     * Return array with elements separeted by size.
      * If save_keys param is true - keys values are saved.
      * @param array $array
      * @param int $size
@@ -61,11 +62,11 @@ class Arr
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         
-        if(!Number::isInteger($size)){
+        if(!Nmbr::isInteger($size)){
             throw new \InvalidArgumentException('Param $size is not integer type.');
         }
         
-        if(!Boolean::isBoolean($save_keys)){
+        if(!Lgc::isBoolean($save_keys)){
             throw new \InvalidArgumentException('Param $save_keys is not bool type.');
         }
         return array_chunk($array, $size,$save_keys);
@@ -98,11 +99,59 @@ class Arr
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         
-        if(!self::keyExists($array, $index_column)){
+        /* if(!self::keyExists($array, $index_column)){
             throw new \LogicException('Key '.$index_column.' does not exist');
-        }
+        } */
         
         return array_column($array,null,$index_column);
+    }
+    
+    /**
+     * Define whether array have key
+     * 
+     * @param array $array
+     * @param string|integer $key
+     * @throws \InvalidArgumentException
+     * @return boolean
+     */
+    public static function keyExists($array,$key)
+    {
+        if(!self::isArray($array)){
+            throw new \InvalidArgumentException('Param $array is not array type.');
+        }
+        
+        if(!Str::isString($key)||!Nmbr::isInteger($key)){
+            throw new \InvalidArgumentException('Param $key is not string or integer type.');
+        }
+            
+        return array_key_exists($key,$array);
+    }
+    
+    /**
+     * Define whether array have column
+     * 
+     * In other words, if every row have neaded key function return true 
+     * @param array $array
+     * @param string|integer $key
+     * @throws \InvalidArgumentException
+     * @return boolean
+     */
+    public static function columnExists($array,$key)
+    {
+        if(!self::isArray($array)){
+            throw new \InvalidArgumentException('Param $array is not array type.');
+        }
+        
+        if(!Str::isString($key)||!Nmbr::isInteger($key)){
+            throw new \InvalidArgumentException('Param $key is not string or integer type.');
+        }
+        
+        foreach ($array as $item){
+            if(!self::keyExists($item, $key)){
+                return false;
+            }
+        }
+        return true;
     }
     
     /**
@@ -156,13 +205,13 @@ class Arr
      */
     public static function createArrayByRange($start,$end,$step=1)
     {
-        if(!Number::isInteger($start)){
+        if(!Nmbr::isInteger($start)){
             throw new \InvalidArgumentException('Param $start is not array type.');
         }
-        if(!Number::isInteger($end)){
+        if(!Nmbr::isInteger($end)){
             throw new \InvalidArgumentException('Param $end is not array type.');
         }
-        if(!Number::isInteger($step)){
+        if(!Nmbr::isInteger($step)){
             throw new \InvalidArgumentException('Param $step is not array type.');
         }
         
@@ -180,10 +229,10 @@ class Arr
      */
     public static function createFilledByValues($start,$end,$value)
     {
-        if(!Number::isInteger($start)){
+        if(!Nmbr::isInteger($start)){
             throw new \InvalidArgumentException('Param $start is not array type.');
         }
-        if(!Number::isInteger($end)){
+        if(!Nmbr::isInteger($end)){
             throw new \InvalidArgumentException('Param $end is not array type.');
         }
         return array_fill($start,$end,$value);
@@ -202,7 +251,7 @@ class Arr
         if(!self::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        if(!Variable::isCallable($handler)){
+        if(!Vrbl::isCallable($handler)){
             throw new \InvalidArgumentException('Param $handler is not array type.');
         }
         return array_filter($array,$handler,self::ARRAY_FILTER_USE_BOTH);
@@ -222,7 +271,7 @@ class Arr
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         $result=flip($array);
-        if(Variable::isNull($result)){
+        if(Vrbl::isNull($result)){
             throw new \RuntimeException("Array flip exception.");
         }
         return $result;
@@ -236,7 +285,7 @@ class Arr
      */
     public static function map($handler,$array)
     {
-        if(!Variable::isCallable($handler)){
+        if(!Vrbl::isCallable($handler)){
             throw new \InvalidArgumentException('Param $handler is not callable type.');
         }
         if(!self::isArray($array)){
@@ -277,7 +326,7 @@ class Arr
         if(!self::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        if(!Number::isInteger($size)){
+        if(!Nmbr::isInteger($size)){
             throw new \InvalidArgumentException('Param $size is not integer type.');
         }
         
@@ -373,7 +422,7 @@ class Arr
         if(!self::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        if(!Number::isInteger($num)){
+        if(!Nmbr::isInteger($num)){
             throw new \InvalidArgumentException('Param $num is not integer type.');
         }
         return array_rand($array,$num);
@@ -392,12 +441,12 @@ class Arr
         if(!self::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        if(!Number::isInteger($offset)){
+        if(!Nmbr::isInteger($offset)){
             throw new \InvalidArgumentException('Param $offset is not integer type.');
         }
-        if(!Variable::isNull($length))
+        if(!Vrbl::isNull($length))
         {
-            if(!Variable::isNumber($length)){
+            if(!Vrbl::isNumber($length)){
                 throw new \InvalidArgumentException('Param $length is not integer type.');
             }
             $cnt=self::getSize($array);
@@ -426,12 +475,12 @@ class Arr
         if(!self::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        if(!Number::isInteger($offset)){
+        if(!Nmbr::isInteger($offset)){
             throw new \InvalidArgumentException('Param $offset is not integer type.');
         }
-        if(!Variable::isNull($length))
+        if(!Vrbl::isNull($length))
         {
-            if(!Variable::isNumber($length)){
+            if(!Vrbl::isNumber($length)){
                 throw new \InvalidArgumentException('Param $length is not integer type.');
             }
             $cnt=self::getSize($array);

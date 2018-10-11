@@ -17,7 +17,7 @@ class Extensions
     /**
      * Define whether extension is loaded
      * 
-     * @param unknown $library
+     * @param string $extension
      * @return boolean
      */
     public static function isLoaded($extension)

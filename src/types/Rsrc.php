@@ -1,6 +1,11 @@
 <?php
 namespace devskyfly\php56\type;
 
+/**
+ * 
+ * @author devskyfly
+ * @todo Need test
+ */
 class Rsrc
 {
     /**

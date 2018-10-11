@@ -1,7 +1,7 @@
 <?php
 namespace devskyfly\php56\core;
 
-use devskyfly\php56\types\Variable;
+use devskyfly\php56\types\Vrbl;
 
 /**
  * Can't redeclarate using magic constants like:
@@ -25,7 +25,7 @@ use devskyfly\php56\types\Variable;
      public static function traitExists($trait_name)
      {
          $result=trait_exists($trait_name);
-         if(Variable::isNull($result)) throw new \Exception("Trait existing check error.");
+         if(Vrbl::isNull($result)) throw new \Exception("Trait existing check error.");
          return $result;
      }
      
@@ -52,7 +52,7 @@ use devskyfly\php56\types\Variable;
      public static function classPropertyExists($class_obj,$property)
      {
          $result=property_exists($class_obj,$property);
-         if(Variable::isNull($result)) throw new \Exception("Property existing check error.");
+         if(Vrbl::isNull($result)) throw new \Exception("Property existing check error.");
          return $result;
      }
      
@@ -67,7 +67,7 @@ use devskyfly\php56\types\Variable;
      public static function classMethodExists($class_obj,$property)
      {
          $result=property_exists($class_obj,$property);
-         if(Variable::isNull($result)) throw new \Exception("Property existing check error.");
+         if(Vrbl::isNull($result)) throw new \Exception("Property existing check error.");
          return $result;
      }
     

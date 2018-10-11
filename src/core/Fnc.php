@@ -1,7 +1,7 @@
 <?php
 namespace devskyfly\php56\core;
 
-use devskyfly\php56\types\String;
+use devskyfly\php56\types\Str;
 
 class Fnc
 {
@@ -15,7 +15,7 @@ class Fnc
      */
     public function exists($function)
     {
-        if(!String::isString($function)){
+        if(!Str::isString($function)){
             throw new \InvalidArgumentException('Param $function is not string type.');
         }
         return function_exists($function_name);

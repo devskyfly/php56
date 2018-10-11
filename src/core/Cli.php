@@ -1,13 +1,13 @@
 <?php
 namespace devskyfly\php56\core;
 
-use devskyfly\php56\types\Variable;
+use devskyfly\php56\types\Vrbl;
 
 class Cli
 {
     /**
      * Set title to current process
-     * @param unknown $title
+     * @param string $title
      * @return boolean
      */
     public static function setProcessTitle($title)
@@ -33,7 +33,7 @@ class Cli
      */
     public static function getParams($keys_list, $dbl_keys_list="")
     {
-        if(Variable::isEmpty($dbl_keys_list))
+        if(Vrbl::isEmpty($dbl_keys_list))
         {
             return getopt($keys_list);
         }else{

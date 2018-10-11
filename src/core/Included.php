@@ -13,7 +13,6 @@ class Included
         return get_included_files();
     }
 
-    
     public static function inc($file_path)
     {
         return include($file_path);

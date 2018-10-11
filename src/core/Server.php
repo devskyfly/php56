@@ -1,7 +1,7 @@
 <?php
 namespace devskyfly\php56\core;
 
-use devskyfly\php56\types\Variable;
+use devskyfly\php56\types\Vrbl;
 
 class Server
 {
@@ -22,7 +22,7 @@ class Server
      */
     public static function getEnv($var="")
     {
-        if(Variable::isEmpty($var))
+        if(Vrbl::isEmpty($var))
         {
             return getenv($var);
         }else{

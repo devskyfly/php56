@@ -1,8 +1,6 @@
 <?php
 namespace devskyfly\php56\core;
 
-use devskyfly\php56\types\Variable;
-
 class ExceptionError
 {
     const E_ERROR=E_ERROR;
