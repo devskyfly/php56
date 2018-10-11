@@ -1,7 +1,7 @@
 <?php
 namespace devskyfly\php56\types;
 
-class Object
+class Obj
 {
     /**
      * Return class name including namespace
@@ -43,6 +43,7 @@ class Object
      *
      * @param object|string $object - object or class name
      * @param string $class_name
+     * @return bool
      */
     public static function isSubClassOf($object,$class_name)
     {

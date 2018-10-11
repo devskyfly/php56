@@ -1,7 +1,7 @@
 <?php
 namespace devskyfly\php56\types;
 
-class StringTest extends \Codeception\Test\Unit
+class StrTest extends \Codeception\Test\Unit
 {
     /**
      * @var \UnitTester

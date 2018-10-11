@@ -1,7 +1,7 @@
 <?php
 namespace devskyfly\php56\types;
 
-class Number
+class Nmbr
 {   
     const NAN=NaN;
     const EPSILON=0.00001;

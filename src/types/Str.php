@@ -1,7 +1,7 @@
 <?php
 namespace devskyfly\php56\types;
 
-class String
+class Str
 {
     /**
      * Define whether the variable is string

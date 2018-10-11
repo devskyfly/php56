@@ -1,7 +1,7 @@
 <?php
 namespace devskyfly\php56\type;
 
-class Resource
+class Rsrc
 {
     /**
      * Define whether the variable is resource

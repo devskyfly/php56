@@ -1,7 +1,7 @@
 <?php
 namespace devskyfly\php56\types;
 
-class Boolean
+class Lgc
 {
     
     /**

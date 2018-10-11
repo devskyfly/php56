@@ -9,7 +9,7 @@ namespace devskyfly\php56\types;
  * -use isset() to check if variable exists
  * -use unset() to delete variable
  */
-class Variable
+class Vrb
 {
     /**
      * Define whether the variable is null
