@@ -1,7 +1,7 @@
 <?php
 namespace devskyfly\php56\types;
 
-class Obj extends \Codeception\Test\Unit
+class ObjTest extends \Codeception\Test\Unit
 {
     /**
      * @var \UnitTester
@@ -35,16 +35,10 @@ class Obj extends \Codeception\Test\Unit
     
     public function testIsSubClassOf()
     {
-        class SubDateTime extends \DateTime
-        {
-            
-        }
+        $obj=new \LogicException();
         
-        $sub_class=new SubDateTime();
-        
-        $this->assertTrue(Obj::isSubClassOf($sub_class,\DateTime::class));
-        
-        $this->assertTrue(Obj::isSubClassOf($sub_class,\LogicException::class));
+        $this->assertTrue(Obj::isSubClassOf($obj,\Exception::class)); 
+        $this->assertFalse(Obj::isSubClassOf($obj,\DateTime::class));
     }
     
 }
