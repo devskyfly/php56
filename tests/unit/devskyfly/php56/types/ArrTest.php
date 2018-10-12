@@ -53,8 +53,7 @@ class ArrTest extends \Codeception\Test\Unit
         $this->expectException(\InvalidArgumentException::class);
         Arr::countValues("");
     }
-    
-    
+     
     public function testGetChunked()
     {
         $result=Arr::getChunked($this->assoc_array, 2);
@@ -83,12 +82,15 @@ class ArrTest extends \Codeception\Test\Unit
     public function testIndexByColumn()
     {
         $result=Arr::indexByColumn($this->table, "value");
-        codecept_debug($result);
+        $cnt=self::getSize($result);
         
-        /* $i=1;
-        foreach ($result as $item){
-            $this->assertTrue($item["value"]==$i);
+        for ($i=1;$i<=$cnt;$i++){
+            $this->assertTrue($item[$i]["value"]==$i);
             $i++;  
-        } */
+        }
+        
+        $this->expectException(\InvalidArgumentException::class);
+        $result=Arr::indexByColumn($this->table, true);
     }
+
 }

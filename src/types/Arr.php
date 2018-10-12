@@ -87,8 +87,11 @@ class Arr
     }
     
     /**
-     * Return array indexed by column
+     * Return array indexed by column value, but not no ordered
      *
+     * Notice that returned array has index values related to column value in order.
+     * But items in result arraay is not sorted by index.
+     *  
      * @throws \InvalidArgumentException::
      * @param array $array
      * @param integer|string $index_column
@@ -99,10 +102,10 @@ class Arr
         if(!self::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        
-        /* if(!self::columnExists($array, $index_column)){
+              
+        if(!self::columnExists($array, $index_column)){
             throw new \InvalidArgumentException('Key '.$index_column.' does not exist');
-        } */ 
+        }
         
         return array_column($array,null,$index_column);
     }
@@ -121,7 +124,7 @@ class Arr
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         
-        if((!Str::isString($key))||(!Nmbr::isInteger($key))){
+        if((!Str::isString($key))&&(!Nmbr::isInteger($key))){
             throw new \InvalidArgumentException('Param $key is not string or integer type.');
         }
             
@@ -143,7 +146,7 @@ class Arr
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         
-        if((!Str::isString($key))||(!Nmbr::isInteger($key))){
+        if((!Str::isString($key))&&(!Nmbr::isInteger($key))){
             throw new \InvalidArgumentException('Param $key is not string or integer type.');
         }
         
