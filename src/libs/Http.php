@@ -1,5 +1,5 @@
 <?php
-namespace devskyfly\php56\core;
+namespace devskyfly\php56\libs;
 
 class Http
 {

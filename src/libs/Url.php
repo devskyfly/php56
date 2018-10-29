@@ -1,7 +1,7 @@
 <?php
-namespace devskyfly\php56\core;
+namespace devskyfly\php56\libs;
 
-use devskyfly\php56\types\Variable;
+use devskyfly\php56\types\Vrbl;
 
 class Url
 {
@@ -16,8 +16,8 @@ class Url
      */
     public static function generateQuery($data,$prefix="",$separartor="")
     {
-        if(!Variable::isEmpty($prefix))  return http_build_query($data,$prefix);
-        if(!Variable::isEmpty($separartor))  return http_build_query($data,$prefix,$separartor);
+        if(!Vrbl::isEmpty($prefix))  return http_build_query($data,$prefix);
+        if(!Vrbl::isEmpty($separartor))  return http_build_query($data,$prefix,$separartor);
         return http_build_query($data);
     }
     

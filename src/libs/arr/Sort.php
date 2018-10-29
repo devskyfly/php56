@@ -1,8 +1,8 @@
 <?php
 namespace devskyfly\php56\libs\arr;
 
-use devskyfly\php56\types\Variable;
-use devskyfly\php56\types\Number;
+use devskyfly\php56\types\Vrbl;
+use devskyfly\php56\types\Nmbr;
 
 class Sort
 {
@@ -26,7 +26,7 @@ class Sort
         if(!self::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        if(!Number::isInteger($flag)){
+        if(!Nmbr::isInteger($flag)){
             throw new \InvalidArgumentException('Param $flag is not array type.');
         }
         return sort($array,$flag);
@@ -45,7 +45,7 @@ class Sort
         if(!self::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        if(!Variable::isCallable($handler)){
+        if(!Vrbl::isCallable($handler)){
             throw new \InvalidArgumentException('Param $handler is not array type.');
         }
         return uasort(&$array,$handler);
@@ -64,7 +64,7 @@ class Sort
         if(!self::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        if(!Variable::isCallable($handler)){
+        if(!Vrbl::isCallable($handler)){
             throw new \InvalidArgumentException('Param $handler is not array type.');
         }
         return uksort(&$array,$handler);
@@ -83,7 +83,7 @@ class Sort
         if(!self::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        if(!Variable::isCallable($handler)){
+        if(!Vrbl::isCallable($handler)){
             throw new \InvalidArgumentException('Param $handler is not array type.');
         }
         return usort(&$array,$handler);

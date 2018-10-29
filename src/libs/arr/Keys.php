@@ -1,6 +1,9 @@
 <?php
 namespace devskyfly\php56\libs\arr;
 
+use devskyfly\php56\types\Nmbr;
+use devskyfly\php56\types\Str;
+
 class Keys
 {
     const CASE_LOWER=CASE_LOWER;
@@ -34,8 +37,8 @@ class Keys
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         
-        if((!Number::isInteger($key))
-            ||(!String::isString($key))){
+        if((!Nmbr::isInteger($key))
+            ||(!Str::isString($key))){
                 throw new \InvalidArgumentException('Param $key is not string or integer type.');
         }
         

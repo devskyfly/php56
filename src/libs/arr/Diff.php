@@ -1,7 +1,7 @@
 <?php
 namespace devskyfly\php56\libs\arr;
 
-use devskyfly\php56\types\Variable;
+use devskyfly\php56\types\Vrbl;
 
 class Diff
 {
@@ -40,7 +40,7 @@ class Diff
         if(!self::isArray($array_2)){
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
-        if(!Variable::isCallable($handler)){
+        if(!Vrbl::isCallable($handler)){
             throw new \InvalidArgumentException('Param $handler is not callable type.');
         }
         return array_diff_uassoc($array1, $array2, $handler);
@@ -82,7 +82,7 @@ class Diff
         if(!self::isArray($array_2)){
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
-        if(!Variable::isCallable($handler)){
+        if(!Vrbl::isCallable($handler)){
             throw new \InvalidArgumentException('Param $handler is not callable type.');
         }
         return array_diff_ukey($array1, $array2,$handler);
