@@ -1,6 +1,7 @@
 <?php
 namespace devskyfly\php56\libs\arr;
 
+use devskyfly\php56\types\Arr;
 use devskyfly\php56\types\Vrbl;
 
 class Diff
@@ -14,10 +15,10 @@ class Diff
      */
     public static function getDifferenceAssoscByValue($array_1,$array_2)
     {
-        if(!self::isArray($array_1)){
+        if(!Arr::isArray($array_1)){
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!self::isArray($array_2)){
+        if(!Arr::isArray($array_2)){
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
         return array_diff_assoc($array1, $array2);
@@ -34,10 +35,10 @@ class Diff
      */
     public static function getUserDifferenceAssoscByValue($array_1,$array_2,$handler)
     {
-        if(!self::isArray($array_1)){
+        if(!Arr::isArray($array_1)){
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!self::isArray($array_2)){
+        if(!Arr::isArray($array_2)){
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
         if(!Vrbl::isCallable($handler)){
@@ -56,10 +57,10 @@ class Diff
      */
     public static function getDifferenceByKeys($array1, $array2)
     {
-        if(!self::isArray($array_1)){
+        if(!Arr::isArray($array_1)){
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!self::isArray($array_2)){
+        if(!Arr::isArray($array_2)){
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
         return array_diff_key($array1, $array2);
@@ -76,10 +77,10 @@ class Diff
      */
     public static function getUserDifferenceByKeys($array_1,$array_2,$handler)
     {
-        if(!self::isArray($array_1)){
+        if(!Arr::isArray($array_1)){
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!self::isArray($array_2)){
+        if(!Arr::isArray($array_2)){
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
         if(!Vrbl::isCallable($handler)){
@@ -98,10 +99,10 @@ class Diff
      */
     public static function getDifference($array_1,$array_2)
     {
-        if(!self::isArray($array_1)){
+        if(!Arr::isArray($array_1)){
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!self::isArray($array_2)){
+        if(!Arr::isArray($array_2)){
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
         return array_diff_assoc($array1, $array2);

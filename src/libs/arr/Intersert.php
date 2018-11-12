@@ -1,6 +1,7 @@
 <?php
 namespace devskyfly\php56\libs\arr;
 
+use devskyfly\php56\types\Arr;
 use devskyfly\php56\types\Vrbl;
 
 class Intersert
@@ -14,10 +15,10 @@ class Intersert
      */
     public static function getIntersectAssoscByValue($array_1,$array_2)
     {
-        if(!self::isArray($array_1)){
+        if(!Arr::isArray($array_1)){
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!self::isArray($array_2)){
+        if(!Arr::isArray($array_2)){
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
         return array_intersect_assoc($array1, $array2);
@@ -34,10 +35,10 @@ class Intersert
      */
     public static function getUserIntersectAssoscByValue($array_1,$array_2,$handler)
     {
-        if(!self::isArray($array_1)){
+        if(!Arr::isArray($array_1)){
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!self::isArray($array_2)){
+        if(!Arr::isArray($array_2)){
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
         if(!Vrbl::isCallable($handler)){
@@ -56,10 +57,10 @@ class Intersert
      */
     public static function getIntersectByKeys($array1, $array2)
     {
-        if(!self::isArray($array_1)){
+        if(!Arr::isArray($array_1)){
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!self::isArray($array_2)){
+        if(!Arr::isArray($array_2)){
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
         return array_intersect_key($array1, $array2);
@@ -76,10 +77,10 @@ class Intersert
      */
     public static function getUserIntersectByKeys($array_1,$array_2,$handler)
     {
-        if(!self::isArray($array_1)){
+        if(!Arr::isArray($array_1)){
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!self::isArray($array_2)){
+        if(!Arr::isArray($array_2)){
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
         if(!Vrbl::isCallable($handler)){
@@ -98,10 +99,10 @@ class Intersert
      */
     public static function getIntersect($array_1,$array_2)
     {
-        if(!self::isArray($array_1)){
+        if(!Arr::isArray($array_1)){
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!self::isArray($array_2)){
+        if(!Arr::isArray($array_2)){
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
         return array_intersect($array1, $array2);

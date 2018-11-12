@@ -1,6 +1,7 @@
 <?php
 namespace devskyfly\php56\libs\arr;
 
+use devskyfly\php56\types\Arr;
 use devskyfly\php56\types\Nmbr;
 use devskyfly\php56\types\Str;
 
@@ -18,7 +19,7 @@ class Keys
      */
     public static function getKeys($array)
     {
-        if(!self::isArray($array)){
+        if(!Arr::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         return array_keys();
@@ -33,7 +34,7 @@ class Keys
      */
     public static function keyExists($array,$key)
     {
-        if(!self::isArray($array)){
+        if(!Arr::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         

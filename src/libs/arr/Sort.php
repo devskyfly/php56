@@ -1,6 +1,7 @@
 <?php
 namespace devskyfly\php56\libs\arr;
 
+use devskyfly\php56\types\Arr;
 use devskyfly\php56\types\Vrbl;
 use devskyfly\php56\types\Nmbr;
 
@@ -23,7 +24,7 @@ class Sort
      */
     public static function sort(&$array,$flag=self::SORT_REGULAR)
     {
-        if(!self::isArray($array)){
+        if(!Arr::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         if(!Nmbr::isInteger($flag)){
@@ -42,7 +43,7 @@ class Sort
      */
     public static function sortByHandlerWithKeysSave(&$array,$handler)
     {
-        if(!self::isArray($array)){
+        if(!Arr::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         if(!Vrbl::isCallable($handler)){
@@ -61,7 +62,7 @@ class Sort
      */
     public static function sortByKeysAndHandler(&$array,$handler)
     {
-        if(!self::isArray($array)){
+        if(!Arr::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         if(!Vrbl::isCallable($handler)){
@@ -80,7 +81,7 @@ class Sort
      */
     public static function sortByHandler(&$array,$handler)
     {
-        if(!self::isArray($array)){
+        if(!Arr::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         if(!Vrbl::isCallable($handler)){
