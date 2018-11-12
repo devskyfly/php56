@@ -27,7 +27,7 @@ class Sort
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         if(!Nmbr::isInteger($flag)){
-            throw new \InvalidArgumentException('Param $flag is not array type.');
+            throw new \InvalidArgumentException('Param $flag is not integer type.');
         }
         return sort($array,$flag);
     }
@@ -46,9 +46,9 @@ class Sort
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         if(!Vrbl::isCallable($handler)){
-            throw new \InvalidArgumentException('Param $handler is not array type.');
+            throw new \InvalidArgumentException('Param $handler is not callable type.');
         }
-        return uasort(&$array,$handler);
+        return uasort($array,$handler);
     }
     
     /**
@@ -65,9 +65,9 @@ class Sort
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         if(!Vrbl::isCallable($handler)){
-            throw new \InvalidArgumentException('Param $handler is not array type.');
+            throw new \InvalidArgumentException('Param $handler is not callable type.');
         }
-        return uksort(&$array,$handler);
+        return uksort($array,$handler);
     }
     
     /**
@@ -84,8 +84,8 @@ class Sort
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         if(!Vrbl::isCallable($handler)){
-            throw new \InvalidArgumentException('Param $handler is not array type.');
+            throw new \InvalidArgumentException('Param $handler is not callable type.');
         }
-        return usort(&$array,$handler);
+        return usort($array,$handler);
     }
 }
