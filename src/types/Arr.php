@@ -18,6 +18,19 @@ class Arr
     }
     
     /**
+     * Define whether item is exists in array
+     *
+     * If strict is true, then compare mode will be strict
+     * @param mixed $needle
+     * @param array $haystack
+     * @return boolean
+     */
+    public static function inArray($needle,$haystack,$strict=false)
+    {
+        return in_array($needle,$haystack,$strict=false);
+    }
+    
+    /**
      * Return array size
      *
      * @param array $array
@@ -286,6 +299,7 @@ class Arr
      * @param callable $handler
      * @param array $array
      * @throws \InvalidArgumentException
+     * @return array
      */
     public static function map($handler,$array)
     {
@@ -295,7 +309,7 @@ class Arr
         if(!self::isArray($array)){
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        array_map($handler,$array);
+        return array_map($handler,$array);
     }
     
     /**
