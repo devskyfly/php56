@@ -1,7 +1,7 @@
 <?php
 namespace devskyfly\php56\core;
 
-class ExceptionError
+class ExcpErr
 {
     const E_ERROR=E_ERROR;
     const E_WARNING=E_WARNING;

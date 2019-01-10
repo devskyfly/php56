@@ -1,7 +1,7 @@
 <?php
 namespace devskyfly\php56\core;
 
-class GarbageCollector
+class GbCollector
 {
     /**
      * Start garbage collector
