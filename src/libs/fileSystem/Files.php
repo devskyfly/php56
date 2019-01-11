@@ -15,7 +15,7 @@ class Files
     public static function deleteFile($path)
     {
         if(!Str::isString($path)){
-            throw new \InvalidArgumentException('Parament $path is not string type');
+            throw new \InvalidArgumentException('Parameter $path is not string type');
         }
         return unlink($path);
     }
@@ -40,7 +40,7 @@ class Files
     public static function isFile($path)
     {
         if(!Str::isString($path)){
-            throw new \InvalidArgumentException('Parament $path is not string type');
+            throw new \InvalidArgumentException('Parameter $path is not string type');
         }
         return is_file($path);
     }

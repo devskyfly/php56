@@ -16,7 +16,7 @@ class Dirs
     public static function deleteDir($path)
     {
         if(!Str::isString($path)){
-            throw new \InvalidArgumentException('Parament $path is not string type');
+            throw new \InvalidArgumentException('Parameter $path is not string type');
         }
         return rmdir($path);
     }
@@ -31,7 +31,7 @@ class Dirs
     public static function deleteDirR($path)
     {
         if(!Str::isString($path)){
-            throw new \InvalidArgumentException('Parament $path is not string type');
+            throw new \InvalidArgumentException('Parameter $path is not string type');
         }
         
         $files = array_diff(scandir($path), array('.','..'));
@@ -62,7 +62,7 @@ class Dirs
     public static function isDir($path)
     {
         if(!Str::isString($path)){
-            throw new \InvalidArgumentException('Parament $path is not string type');
+            throw new \InvalidArgumentException('Parameter $path is not string type');
         }
         return is_dir($path);
     }
@@ -77,7 +77,7 @@ class Dirs
     public static function getFilesByPattern($pattern)
     {
         if(!Str::isString($pattern)){
-            throw new \InvalidArgumentException('Parament $pattern is not string type');
+            throw new \InvalidArgumentException('Parameter $pattern is not string type');
         }
         return glob($pattern);
     }

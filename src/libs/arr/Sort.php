@@ -7,6 +7,8 @@ use devskyfly\php56\types\Nmbr;
 
 class Sort
 {
+    const SORT_ASC=SORT_ASC;
+    const SORT_DESC=SORT_DESC;
     const SORT_REGULAR=SORT_REGULAR;
     const SORT_NUMERIC=SORT_NUMERIC;
     const SORT_STRING=SORT_STRING;

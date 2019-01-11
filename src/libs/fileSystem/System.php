@@ -13,9 +13,10 @@ class System
     public static function exists($path)
     {
         if(!Str::isString($path)){
-            throw new \InvalidArgumentException('Parament $$path is not string type');
+            throw new \InvalidArgumentException('Parameter $path is not string type');
         }
-        return file_exists($path);
+        $real_path=realpath($path);
+        return file_exists($real_path);
     }
     
     /**
@@ -27,7 +28,7 @@ class System
     public static function isLink($path)
     {
         if(!Str::isString($path)){
-            throw new \InvalidArgumentException('Parament $$path is not string type');
+            throw new \InvalidArgumentException('Parameter $path is not string type');
         }
         return is_link($path);
     }
@@ -41,7 +42,7 @@ class System
     public static function getFilesByPattern($pattern)
     {
         if(!Str::isString($pattern)){
-            throw new \InvalidArgumentException('Parament $pattern is not string type');
+            throw new \InvalidArgumentException('Parameter $pattern is not string type');
         }
         return glob($pattern);
     }
