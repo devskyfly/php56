@@ -31,6 +31,29 @@ class Arr
     }
     
     /**
+     * Return an array of strings, each of which is a substring of string
+     * formed by splitting it on boundaries formed by the string delimiter.
+     * 
+     * @param string $delimeter
+     * @param string $str
+     * @throws \InvalidArgumentException
+     */
+    public static function explode($delimeter,$str)
+    {
+        if(!Str::isString($delimeter)){
+            throw new \InvalidArgumentException('Parameter $delimiter is not string type.');
+        }
+        if(!Str::isString($str)){
+            throw new \InvalidArgumentException('Parameter $str is not string type.');
+        }
+        if(!Vrbl::isEmpty($str)){
+            throw new \InvalidArgumentException('Parameter $str is empty.');
+        }
+            
+        return explode($delimeter,$str);
+    }
+    
+    /**
      * Return array size
      *
      * @param array $array

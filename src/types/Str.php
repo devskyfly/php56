@@ -24,4 +24,24 @@ class Str
     {
         return strval($val);
     }
+    
+    
+    /**
+     * Join array elements eith string.
+     * 
+     * @param string $glue
+     * @param array $pieses
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public static function implode($glue, $pieses)
+    {
+        if(!Str::isString($glue)){
+            throw new \InvalidArgumentException('Parameter $glue is not string type.');
+        }
+        if(!Arr::isArray($pieses)){
+            throw new \InvalidArgumentException('Parameter $pieses is not array type.');
+        }
+        return implode($glue,$pieses);
+    }
 }
