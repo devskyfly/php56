@@ -4,7 +4,7 @@ namespace devskyfly\php56\libs\arr;
 use devskyfly\php56\types\Arr;
 use devskyfly\php56\types\Vrbl;
 
-class Intersert
+class Intersect
 {
     /**
      * Return array with elements from array_1 that exist in array_2 with additional index check
