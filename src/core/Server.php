@@ -38,7 +38,7 @@ class Server
      */
     public static function getServerParam($param_name,$default_value=false)
     {
-        return $this->getGetParam($_SERVER,$param_name,$default_value);
+        return Vrbl::getValue($_SERVER,$param_name,$default_value);
     }
     
     /**
@@ -49,7 +49,7 @@ class Server
      */
     public static function getGetParam($param_name,$default_value=false)
     {
-        return $this->getGetParam($_GET,$param_name,$default_value);
+        return Vrbl::getValue($_GET,$param_name,$default_value);
     }
     
     /**
@@ -60,7 +60,7 @@ class Server
      */
     public static function getPostParam($param_name,$default_value=false)
     {
-        return $this->getGetParam($_POST,$param_name,$default_value);
+        return Vrbl::getValue($_POST,$param_name,$default_value);
     }
     
     /**
@@ -71,7 +71,7 @@ class Server
      */
     public static function getRequestParam($param_name,$default_value=false)
     {
-        return $this->getGetParam($_REQUEST,$param_name,$default_value);
+        return Vrbl::getValue($_REQUEST,$param_name,$default_value);
     }
     
     /**
@@ -82,7 +82,7 @@ class Server
      */
     public static function getSessionParam($param_name,$default_value=false)
     {
-        return $this->getGetParam($_SESSION,$param_name,$default_value);
+        return Vrbl::getValue($_SESSION,$param_name,$default_value);
     }
     
     /**
@@ -93,7 +93,7 @@ class Server
      */
     public static function getFilesParam($param_name,$default_value=false)
     {
-        return $this->getGetParam($_FILES,$param_name,$default_value);
+        return Vrbl::getValue($_FILES,$param_name,$default_value);
     }
     
     /**
@@ -104,16 +104,7 @@ class Server
      */
     public static function getCookieParam($param_name,$default_value=false)
     {
-        return $this->getGetParam($_COOKIE,$param_name,$default_value);
-    }
-    
-    protected static function getParam($array,$param_name,$defualt_value)
-    {
-        if(isset($array[$param_name])){
-            return $array[$param_name];
-        }else{
-            return $defualt_value;
-        }
+        return Vrbl::getValue($_COOKIE,$param_name,$default_value);
     }
     
 }

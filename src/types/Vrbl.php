@@ -10,7 +10,36 @@ namespace devskyfly\php56\types;
  * -use unset() to delete variable
  */
 class Vrbl
-{
+{   
+    /**
+     * Undocumented function
+     *
+     * @param array | object $entity
+     * @param string $name
+     * @param mixed $defaultValue
+     * @return void
+     */
+    public static function getValue($entity, $name, $defaultValue=false)
+    {
+        if(!Str::isString($name)){
+            throw new \InvalidArgumentException('Param $name is not string type.');
+        }
+
+        if((!is_array($entity))&&(!is_object($entity)){
+            throw new \InvalidArgumentException('Param $entity is not array or object type.');
+        }
+        
+        if(isset($entity, $name)) {
+            if(\is_object($entity)) {
+                return $entity->$name;
+            }else{
+                return $entity[$name];
+            }
+        }else{
+            return $defaultValue;
+        }
+    } 
+
     /**
      * Define whether the variable is null
      * 
