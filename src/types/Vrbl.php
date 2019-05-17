@@ -25,7 +25,7 @@ class Vrbl
             throw new \InvalidArgumentException('Param $name is not string type.');
         }
 
-        if((!is_array($entity))&&(!is_object($entity)){
+        if((!is_array($entity))&&(!is_object($entity))){
             throw new \InvalidArgumentException('Param $entity is not array or object type.');
         }
         
