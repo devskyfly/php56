@@ -34,16 +34,7 @@ class Keys
      */
     public static function keyExists($array, $key)
     {
-        if (!Arr::isArray($array)) {
-            throw new \InvalidArgumentException('Param $array is not array type.');
-        }
-        
-        if ((!Nmbr::isInteger($key))
-            ||(!Str::isString($key))) {
-            throw new \InvalidArgumentException('Param $key is not string or integer type.');
-        }
-        
-        return array_key_exists($key, $array);
+        return Arr::keyExists($array, $key);
     }
     
     /**

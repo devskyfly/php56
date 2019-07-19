@@ -67,6 +67,22 @@ class Arr
         }
         return count($array);
     }
+
+
+    /**
+     * Return indexed array of values
+     *
+     * @link https://www.php.net/manual/ru/function.array-values.php
+     * @param [type] $array
+     * @return void
+     */
+    public static function getValues($array)
+    {
+        if (!self::isArray($array)) {
+            throw new \InvalidArgumentException('Param $array is not array type.');
+        }
+        return array_values();
+    }
     
     /**
      * Return array with keys that were values and digit that equal to value freqvecy
@@ -225,14 +241,15 @@ class Arr
     }
     
     /**
-     * Create array with passed keys and fill it by values
+     * Create array with passed keys and fill it by value
      *
+     * @link https://www.php.net/manual/ru/function.array-fill-keys.php
      * @param array $keys
      * @param mixed $values
      * @throws \InvalidArgumentException
      * @return array
      */
-    public static function createArrayUsingKeysAndValues($keys, $values)
+    public static function createArrayUsingKeysAndValues($keys, $value)
     {
         if (!self::isArray($keys)) {
             throw new \InvalidArgumentException('Param $keys is not array type.');
@@ -243,6 +260,7 @@ class Arr
     /**
      * Create array using range
      *
+     * @link https://www.php.net/manual/ru/function.range.php
      * @param integer $start
      * @param integer $end
      * @param number $step
@@ -267,13 +285,14 @@ class Arr
     /**
      * Create array by filling it's items
      *
+     * @link https://www.php.net/manual/ru/function.array-fill.php
      * @param integer $start
      * @param integer $end
      * @param mixed $value
      * @throws \InvalidArgumentException
      * @return array
      */
-    public static function createFilledByValues($start, $end, $value)
+    public static function createFilledByValue($start, $end, $value)
     {
         if (!Nmbr::isInteger($start)) {
             throw new \InvalidArgumentException('Param $start is not array type.');
@@ -287,6 +306,7 @@ class Arr
     /**
      * Return filtered array.
      *
+     * @link array_filter
      * @param array $array
      * @param callable $handler
      * @throws \InvalidArgumentException
@@ -306,6 +326,7 @@ class Arr
     /**
      * Change keys and values between each other
      *
+     * @link https://www.php.net/manual/ru/function.array-flip.php
      * @param array $array
      * @throws \InvalidArgumentException
      * @throws \RuntimeException
@@ -316,7 +337,7 @@ class Arr
         if (!self::isArray($array)) {
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        $result=flip($array);
+        $result=array_flip($array);
         if (Vrbl::isNull($result)) {
             throw new \RuntimeException("Array flip exception.");
         }
@@ -325,6 +346,8 @@ class Arr
     
     /**
      * Aplly handler function to each array element
+     * 
+     * @link https://www.php.net/manual/ru/function.array-map.php
      * @param callable $handler
      * @param array $array
      * @throws \InvalidArgumentException
