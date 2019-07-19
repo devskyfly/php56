@@ -37,8 +37,7 @@ class ObjTest extends \Codeception\Test\Unit
     {
         $obj=new \LogicException();
         
-        $this->assertTrue(Obj::isSubClassOf($obj,\Exception::class)); 
-        $this->assertFalse(Obj::isSubClassOf($obj,\DateTime::class));
+        $this->assertTrue(Obj::isSubClassOf($obj, \Exception::class));
+        $this->assertFalse(Obj::isSubClassOf($obj, \DateTime::class));
     }
-    
 }

@@ -69,7 +69,7 @@ class ArrTest extends \Codeception\Test\Unit
         $result=Arr::getChunked($this->assoc_array, 0.2);
         
         $this->expectException(\InvalidArgumentException::class);
-        $result=Arr::getChunked($this->assoc_array, 2,"");
+        $result=Arr::getChunked($this->assoc_array, 2, "");
     }
     
     public function testGetColumn()
@@ -86,13 +86,53 @@ class ArrTest extends \Codeception\Test\Unit
         $result=Arr::indexByColumn($this->hash_table_array, "value");
         $cnt=self::getSize($result);
         
-        for ($i=1;$i<=$cnt;$i++){
+        for ($i=1;$i<=$cnt;$i++) {
             $this->assertTrue($item[$i]["value"]==$i);
-            $i++;  
+            $i++;
         }
         
         $this->expectException(\InvalidArgumentException::class);
         $result=Arr::indexByColumn($this->hash_table_array, true);
     }
 
+    public function testKeyExists()
+    {
+        $this->assertTrue(Arr::keyExists($this->assoc_array, 'a'));
+        $this->assertFalse(Arr::keyExists($this->assoc_array, 'f'));
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->assertTrue(Arr::keyExists(1, 'a'));
+        $this->expectException(\InvalidArgumentException::class);
+        $this->assertTrue(Arr::keyExists($this->assoc_array, new Obj()));
+    }
+
+    public function testColumnExists()
+    {
+        $this->assertTrue(Arr::columnExists($this->hash_table_array, "name"));
+        $this->assertFalse(Arr::columnExists($this->hash_table_array, "name1"));
+
+        $this->expectException(\InvalidArgumentException::class);
+        Arr::columnExists($this->hash_table_array, "name");
+        $this->expectException(\InvalidArgumentException::class);
+        Arr::columnExists(1, new Obj());
+    }
+
+    public function testGetCombined()
+    {
+        $keys = ["a", "b", "c", "d"];
+        $values = [];
+
+        for ($i=1;$i<=4; $i++) {
+            $values[] = "text {$i}";
+        }
+
+        $arr = Arr::getCombined($keys, $values);
+
+        $this->assertEquals(Arr::getSize($arr), 4);
+
+        foreach ($arr as $key => $val) {
+            $this->assertTrue(Arr::keyExists($this->assoc_array, $key));
+            $this->assertEquals($this->assoc_array[$key], $val);
+        }
+    }
 }

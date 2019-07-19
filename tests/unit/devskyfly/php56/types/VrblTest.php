@@ -23,11 +23,11 @@ class VrblTest extends \Codeception\Test\Unit
     {
         $val="";
         $result=Vrbl::isEmpty($val);
-        $this->assertTrue($result);  
+        $this->assertTrue($result);
         
         $val="str";
         $result=Vrbl::isEmpty($val);
-        $this->assertFalse($result); 
+        $this->assertFalse($result);
         
         $val=0;
         $result=Vrbl::isEmpty($val);
@@ -35,7 +35,7 @@ class VrblTest extends \Codeception\Test\Unit
         
         $val=1;
         $result=Vrbl::isEmpty($val);
-        $this->assertFalse($result); 
+        $this->assertFalse($result);
         
         $val=[];
         $result=Vrbl::isEmpty($val);
@@ -43,7 +43,7 @@ class VrblTest extends \Codeception\Test\Unit
         
         $val=[1];
         $result=Vrbl::isEmpty($val);
-        $this->assertFalse($result); 
+        $this->assertFalse($result);
     }
     
     public function testIsNull()
@@ -54,7 +54,7 @@ class VrblTest extends \Codeception\Test\Unit
         
         $val=1;
         $result=Vrbl::isNull($val);
-        $this->assertFalse($result); 
+        $this->assertFalse($result);
     }
     
     public function testIsScalar()
@@ -89,18 +89,18 @@ class VrblTest extends \Codeception\Test\Unit
         $val=[1,2,3];
         $result=Variable::isIterable($val);
         $this->assertTrue($result);
-        
+
         $val="string";
         $result=Variable::isIterable($val);
         $this->assertFalse($result);
     }
-    
+
     public function testIsCountable()
     {
         $val=[1,2,3];
         $result=Variable::isCountable($val);
         $this->assertTrue($result);
-        
+
         $val="string";
         $result=Variable::isCountable($val);
         $this->assertFalse($result);
@@ -109,7 +109,8 @@ class VrblTest extends \Codeception\Test\Unit
     
     public function testIsCallable()
     {
-        $val=function(){};
+        $val=function () {
+        };
         $result=Vrbl::isCallable($val);
         $this->assertTrue($result);
         
@@ -146,7 +147,7 @@ class VrblTest extends \Codeception\Test\Unit
         
         $val=null;
         $type=Vrbl::getType($val);
-        $this->assertEquals("NULL", $type);   
+        $this->assertEquals("NULL", $type);
     }
     
     public function testSetType()
@@ -158,5 +159,4 @@ class VrblTest extends \Codeception\Test\Unit
         $this->assertTrue(Vrbl::setType($val, "boolean"));
         $this->assertTrue(Vrbl::setType($val, "object"));
     }
-    
 }
