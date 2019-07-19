@@ -25,7 +25,9 @@ use devskyfly\php56\types\Vrbl;
      public static function traitExists($trait_name)
      {
          $result=trait_exists($trait_name);
-         if(Vrbl::isNull($result)) throw new \Exception("Trait existing check error.");
+         if (Vrbl::isNull($result)) {
+             throw new \Exception("Trait existing check error.");
+         }
          return $result;
      }
      
@@ -49,10 +51,12 @@ use devskyfly\php56\types\Vrbl;
       * @throws \Exception
       * @return boolean
       */
-     public static function classPropertyExists($class_obj,$property)
+     public static function classPropertyExists($class_obj, $property)
      {
-         $result=property_exists($class_obj,$property);
-         if(Vrbl::isNull($result)) throw new \Exception("Property existing check error.");
+         $result=property_exists($class_obj, $property);
+         if (Vrbl::isNull($result)) {
+             throw new \Exception("Property existing check error.");
+         }
          return $result;
      }
      
@@ -64,10 +68,12 @@ use devskyfly\php56\types\Vrbl;
       * @throws \Exception
       * @return boolean
       */
-     public static function classMethodExists($class_obj,$property)
+     public static function classMethodExists($class_obj, $property)
      {
-         $result=property_exists($class_obj,$property);
-         if(Vrbl::isNull($result)) throw new \Exception("Property existing check error.");
+         $result=property_exists($class_obj, $property);
+         if (Vrbl::isNull($result)) {
+             throw new \Exception("Property existing check error.");
+         }
          return $result;
      }
     
@@ -77,7 +83,7 @@ use devskyfly\php56\types\Vrbl;
       * @param object|string $object - object or class name
       * @param string $class_name
       */
-     public static function isSubClassOf($object,$class_name)
+     public static function isSubClassOf($object, $class_name)
      {
          return is_subclass_of($object, $class_name);
      }

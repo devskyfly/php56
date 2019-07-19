@@ -9,7 +9,7 @@ class Obj
      */
     public static function getClassName($object)
     {
-        if(!static::isObject($object)){
+        if (!static::isObject($object)) {
             throw new \InvalidArgumentException('Param $object is not object type.');
         }
         return get_class($object);
@@ -28,14 +28,14 @@ class Obj
     
     /**
      * Define whether object belongs to curent class or this class is object parent
-     * 
+     *
      * @param object $object
      * @param string $class_name
      * @return boolean
      */
-    public static function isA($object,$class_name)
+    public static function isA($object, $class_name)
     {
-        return is_a($object,$class_name);
+        return is_a($object, $class_name);
     }
     
     /**
@@ -45,7 +45,7 @@ class Obj
      * @param string $class_name
      * @return bool
      */
-    public static function isSubClassOf($object,$class_name)
+    public static function isSubClassOf($object, $class_name)
     {
         return is_subclass_of($object, $class_name);
     }

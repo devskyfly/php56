@@ -5,7 +5,7 @@ class Memory
 {
     /**
      * Return current memory usege in bytes
-     * 
+     *
      * @return number
      */
     public static function get()
@@ -15,7 +15,7 @@ class Memory
     
     /**
      * Return max memory usage in bytes
-     * 
+     *
      * @return int
      */
     public static function getMax()

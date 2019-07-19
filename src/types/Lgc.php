@@ -17,12 +17,12 @@ class Lgc
     
     /**
      * Convert value to bool
-     * 
+     *
      * @param mixed $val
      * @return boolean
      */
     public static function toBoolean($val)
     {
-        return boolval($val);    
+        return boolval($val);
     }
 }

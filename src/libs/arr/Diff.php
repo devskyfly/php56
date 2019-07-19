@@ -13,12 +13,12 @@ class Diff
      * @param array $array_2
      * @throws \InvalidArgumentException
      */
-    public static function getDifferenceAssoscByValue($array_1,$array_2)
+    public static function getDifferenceAssoscByValue($array_1, $array_2)
     {
-        if(!Arr::isArray($array_1)){
+        if (!Arr::isArray($array_1)) {
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!Arr::isArray($array_2)){
+        if (!Arr::isArray($array_2)) {
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
         return array_diff_assoc($array1, $array2);
@@ -33,15 +33,15 @@ class Diff
      * @throws \InvalidArgumentException
      * @return array
      */
-    public static function getUserDifferenceAssoscByValue($array_1,$array_2,$handler)
+    public static function getUserDifferenceAssoscByValue($array_1, $array_2, $handler)
     {
-        if(!Arr::isArray($array_1)){
+        if (!Arr::isArray($array_1)) {
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!Arr::isArray($array_2)){
+        if (!Arr::isArray($array_2)) {
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
-        if(!Vrbl::isCallable($handler)){
+        if (!Vrbl::isCallable($handler)) {
             throw new \InvalidArgumentException('Param $handler is not callable type.');
         }
         return array_diff_uassoc($array1, $array2, $handler);
@@ -57,10 +57,10 @@ class Diff
      */
     public static function getDifferenceByKeys($array1, $array2)
     {
-        if(!Arr::isArray($array_1)){
+        if (!Arr::isArray($array_1)) {
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!Arr::isArray($array_2)){
+        if (!Arr::isArray($array_2)) {
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
         return array_diff_key($array1, $array2);
@@ -75,18 +75,18 @@ class Diff
      * @throws \InvalidArgumentException
      * @return array
      */
-    public static function getUserDifferenceByKeys($array_1,$array_2,$handler)
+    public static function getUserDifferenceByKeys($array_1, $array_2, $handler)
     {
-        if(!Arr::isArray($array_1)){
+        if (!Arr::isArray($array_1)) {
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!Arr::isArray($array_2)){
+        if (!Arr::isArray($array_2)) {
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
-        if(!Vrbl::isCallable($handler)){
+        if (!Vrbl::isCallable($handler)) {
             throw new \InvalidArgumentException('Param $handler is not callable type.');
         }
-        return array_diff_ukey($array1, $array2,$handler);
+        return array_diff_ukey($array1, $array2, $handler);
     }
     
     
@@ -97,12 +97,12 @@ class Diff
      * @param array $array_2
      * @throws \InvalidArgumentException
      */
-    public static function getDifference($array_1,$array_2)
+    public static function getDifference($array_1, $array_2)
     {
-        if(!Arr::isArray($array_1)){
+        if (!Arr::isArray($array_1)) {
             throw new \InvalidArgumentException('Param $array_1 is not array type.');
         }
-        if(!Arr::isArray($array_2)){
+        if (!Arr::isArray($array_2)) {
             throw new \InvalidArgumentException('Param $array_2 is not array type.');
         }
         return array_diff_assoc($array1, $array2);

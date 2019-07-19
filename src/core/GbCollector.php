@@ -5,7 +5,7 @@ class GbCollector
 {
     /**
      * Start garbage collector
-     * 
+     *
      * Return number of links
      * @return integer
      */
@@ -32,7 +32,7 @@ class GbCollector
     
     /**
      * Return garbage collector status
-     * 
+     *
      * @return boolean
      */
     public static function status()

@@ -8,14 +8,14 @@ class Fnc
     
     /**
      * Define whether the function exists
-     * 
+     *
      * @param string $function
      * @throws \InvalidArgumentException
      * @return boolean
      */
     public function exists($function)
     {
-        if(!Str::isString($function)){
+        if (!Str::isString($function)) {
             throw new \InvalidArgumentException('Param $function is not string type.');
         }
         return function_exists($function_name);

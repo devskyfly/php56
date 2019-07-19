@@ -6,24 +6,28 @@ use devskyfly\php56\types\Vrbl;
 class Url
 {
     /**
-     * Return url query representation of object 
-     * 
+     * Return url query representation of object
+     *
      * @todo test
      * @param mixed $data
      * @param string $prefix
      * @param string $separartor
      * @return string
      */
-    public static function generateQuery($data,$prefix="",$separartor="")
+    public static function generateQuery($data, $prefix="", $separartor="")
     {
-        if(!Vrbl::isEmpty($prefix))  return http_build_query($data,$prefix);
-        if(!Vrbl::isEmpty($separartor))  return http_build_query($data,$prefix,$separartor);
+        if (!Vrbl::isEmpty($prefix)) {
+            return http_build_query($data, $prefix);
+        }
+        if (!Vrbl::isEmpty($separartor)) {
+            return http_build_query($data, $prefix, $separartor);
+        }
         return http_build_query($data);
     }
     
     /**
      * Return parsed url
-     * 
+     *
      * @todo test
      * @param string $url
      * @throws \Exception
@@ -32,13 +36,15 @@ class Url
     public static function parse($url)
     {
         $result=parse_url($url);
-        if($result===false) throw new \Exception('Url parse error.');
+        if ($result===false) {
+            throw new \Exception('Url parse error.');
+        }
         return $result;
     }
     
     /**
      * Return encoded string like application/x-www-form-urlencoded
-     * 
+     *
      * @todo test
      * @param string $str
      * @return string
@@ -50,7 +56,7 @@ class Url
     
     /**
      * Return decode urlencoded string
-     * 
+     *
      * @todo test
      * @param string $str
      * @return string
@@ -62,7 +68,7 @@ class Url
 
     /**
      * Return encoded string by RFC 3986
-     * 
+     *
      * @todo test
      * @param $str
      * @return string
@@ -74,7 +80,7 @@ class Url
     
     /**
      * Return decoded string by RFC 3986
-     * 
+     *
      * @todo test
      * @param $str
      * @return string

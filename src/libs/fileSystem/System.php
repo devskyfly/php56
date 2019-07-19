@@ -12,7 +12,7 @@ class System
      */
     public static function exists($path)
     {
-        if(!Str::isString($path)){
+        if (!Str::isString($path)) {
             throw new \InvalidArgumentException('Parameter $path is not string type');
         }
         $real_path=realpath($path);
@@ -27,7 +27,7 @@ class System
      */
     public static function isLink($path)
     {
-        if(!Str::isString($path)){
+        if (!Str::isString($path)) {
             throw new \InvalidArgumentException('Parameter $path is not string type');
         }
         return is_link($path);
@@ -41,7 +41,7 @@ class System
      */
     public static function getFilesByPattern($pattern)
     {
-        if(!Str::isString($pattern)){
+        if (!Str::isString($pattern)) {
             throw new \InvalidArgumentException('Parameter $pattern is not string type');
         }
         return glob($pattern);

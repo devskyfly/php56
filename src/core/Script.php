@@ -5,7 +5,7 @@ class Script
 {
     /**
      * Return user name of current script owner
-     * 
+     *
      * @return string
      */
     public static function getUserName()
@@ -25,7 +25,7 @@ class Script
     
     /**
      * Return inode of current script
-     * 
+     *
      * @return int | false
      */
     public static function getINode()
@@ -35,7 +35,7 @@ class Script
     
     /**
      * Return date of lust modification of cerrent script
-     * 
+     *
      * @return number
      */
     public static function getLastMod()

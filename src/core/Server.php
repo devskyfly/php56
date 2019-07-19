@@ -22,10 +22,9 @@ class Server
      */
     public static function getEnv($var="")
     {
-        if(Vrbl::isEmpty($var))
-        {
+        if (Vrbl::isEmpty($var)) {
             return getenv($var);
-        }else{
+        } else {
             return getenv();
         }
     }
@@ -36,9 +35,9 @@ class Server
      * @param mixed $default_value - default value on non element exist
      * @return string
      */
-    public static function getServerParam($param_name,$default_value=false)
+    public static function getServerParam($param_name, $default_value=false)
     {
-        return Vrbl::getValue($_SERVER,$param_name,$default_value);
+        return Vrbl::getValue($_SERVER, $param_name, $default_value);
     }
     
     /**
@@ -47,9 +46,9 @@ class Server
      * @param mixed $default_value - default value on non element exist
      * @return string
      */
-    public static function getGetParam($param_name,$default_value=false)
+    public static function getGetParam($param_name, $default_value=false)
     {
-        return Vrbl::getValue($_GET,$param_name,$default_value);
+        return Vrbl::getValue($_GET, $param_name, $default_value);
     }
     
     /**
@@ -58,9 +57,9 @@ class Server
      * @param mixed $default_value - default value on non element exist
      * @return string
      */
-    public static function getPostParam($param_name,$default_value=false)
+    public static function getPostParam($param_name, $default_value=false)
     {
-        return Vrbl::getValue($_POST,$param_name,$default_value);
+        return Vrbl::getValue($_POST, $param_name, $default_value);
     }
     
     /**
@@ -69,9 +68,9 @@ class Server
      * @param mixed $default_value - default value on non element exist
      * @return string
      */
-    public static function getRequestParam($param_name,$default_value=false)
+    public static function getRequestParam($param_name, $default_value=false)
     {
-        return Vrbl::getValue($_REQUEST,$param_name,$default_value);
+        return Vrbl::getValue($_REQUEST, $param_name, $default_value);
     }
     
     /**
@@ -80,9 +79,9 @@ class Server
      * @param mixed $default_value - default value on non element exist
      * @return string
      */
-    public static function getSessionParam($param_name,$default_value=false)
+    public static function getSessionParam($param_name, $default_value=false)
     {
-        return Vrbl::getValue($_SESSION,$param_name,$default_value);
+        return Vrbl::getValue($_SESSION, $param_name, $default_value);
     }
     
     /**
@@ -91,9 +90,9 @@ class Server
      * @param mixed $default_value - default value on non element exist
      * @return string
      */
-    public static function getFilesParam($param_name,$default_value=false)
+    public static function getFilesParam($param_name, $default_value=false)
     {
-        return Vrbl::getValue($_FILES,$param_name,$default_value);
+        return Vrbl::getValue($_FILES, $param_name, $default_value);
     }
     
     /**
@@ -102,9 +101,8 @@ class Server
      * @param mixed $default_value - default value on non element exist
      * @return string
      */
-    public static function getCookieParam($param_name,$default_value=false)
+    public static function getCookieParam($param_name, $default_value=false)
     {
-        return Vrbl::getValue($_COOKIE,$param_name,$default_value);
+        return Vrbl::getValue($_COOKIE, $param_name, $default_value);
     }
-    
 }

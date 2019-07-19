@@ -44,8 +44,8 @@ class Info
     
     /**
      * Return assosiative array of defined constants
-     * 
-     * If param categorize is true - answer array is 
+     *
+     * If param categorize is true - answer array is
      * @param boolean $categorize
      */
     public static function getDefinedConstants($categorize=false)
@@ -60,15 +60,15 @@ class Info
     
     /**
      * Return php version or extension version
-     * 
+     *
      * @return string
      */
     public static function phpVersion($extension="")
     {
         $result="";
-        if(empty($extension)){
+        if (empty($extension)) {
             $result=phpversion($extension);
-        }else{
+        } else {
             $result=phpversion($extension);
         }
         return $result;
@@ -76,15 +76,15 @@ class Info
     
     /**
      * Compare php versions
-     * 
+     *
      * @param string $version1
      * @param string $version2
      * @return integer -1 | 0 | 1
      */
-    public static function versionCompare($version1,$version2)
+    public static function versionCompare($version1, $version2)
     {
         return version_compare($version1, $version2, $operator);
-    } 
+    }
     
     /**
      * Compare php versions by operator
@@ -93,8 +93,8 @@ class Info
      * @param string $operator
      * @return boolean
      */
-    public static function versionCompareByOperator($version1,$version2,$operator)
+    public static function versionCompareByOperator($version1, $version2, $operator)
     {
         return version_compare($version1, $version2, $operator);
-    }   
+    }
 }

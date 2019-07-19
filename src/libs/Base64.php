@@ -20,7 +20,7 @@ class Base64
      */
     public static function decodeStrict($val)
     {
-        return base64_decode($val,true);
+        return base64_decode($val, true);
     }
     
     /**

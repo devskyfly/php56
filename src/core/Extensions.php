@@ -5,7 +5,7 @@ class Extensions
 {
     /**
      * Load neaded extension
-     * 
+     *
      * @param string $extension
      * @return boolean
      */
@@ -16,7 +16,7 @@ class Extensions
     
     /**
      * Define whether extension is loaded
-     * 
+     *
      * @param string $extension
      * @return boolean
      */
@@ -27,7 +27,7 @@ class Extensions
     
     /**
      * Return list of loaded extensions
-     * 
+     *
      * @return array
      */
     public static function getList()
@@ -47,7 +47,7 @@ class Extensions
     
     /**
      * Return list of extension functions
-     * 
+     *
      * @param string $extension
      * @return array
      */

@@ -2,15 +2,15 @@
 namespace devskyfly\php56\types;
 
 /**
- * 
+ *
  * @author devskyfly
- * 
+ *
  * Because its imposible to redeclarate:
  * -use isset() to check if variable exists
  * -use unset() to delete variable
  */
 class Vrbl
-{   
+{
     /**
      * Undocumented function
      *
@@ -21,28 +21,28 @@ class Vrbl
      */
     public static function getValue($entity, $name, $defaultValue=false)
     {
-        if(!Str::isString($name)){
+        if (!Str::isString($name)) {
             throw new \InvalidArgumentException('Param $name is not string type.');
         }
 
-        if((!is_array($entity))&&(!is_object($entity))){
+        if ((!is_array($entity))&&(!is_object($entity))) {
             throw new \InvalidArgumentException('Param $entity is not array or object type.');
         }
         
-        if(isset($entity, $name)) {
-            if(\is_object($entity)) {
+        if (isset($entity, $name)) {
+            if (\is_object($entity)) {
                 return $entity->$name;
-            }else{
+            } else {
                 return $entity[$name];
             }
-        }else{
+        } else {
             return $defaultValue;
         }
-    } 
+    }
 
     /**
      * Define whether the variable is null
-     * 
+     *
      * @param mixed $val
      * @return boolean
      */
@@ -64,7 +64,7 @@ class Vrbl
     
     /**
      * Define whether the variable is scalar
-     * 
+     *
      * Scalar is a simple type. Array, object, null and resource are not scalar
      * @param mixed $val
      * @since PHP >=7.3
@@ -120,12 +120,12 @@ class Vrbl
     }
     
     /**
-     * 
+     *
      * @param mixed $val
      * @param string $type boolean, int, double, string, array, object, null
      * @return boolean
      */
-    public static function setType(&$val,$type)
+    public static function setType(&$val, $type)
     {
         return settype($val, $type);
     }
@@ -142,7 +142,7 @@ class Vrbl
     
     /**
      * Generates a storable representation of value
-     * 
+     *
      * @param mixed $val
      * @return string
      */
@@ -153,7 +153,7 @@ class Vrbl
     
     /**
      * Create PHP value from a stored representation
-     * 
+     *
      * @param string $val
      * @return mixed
      */
@@ -178,12 +178,12 @@ class Vrbl
      */
     public static function rPrintR($val)
     {
-        return print_r($val,true);
+        return print_r($val, true);
     }
     
     /**
      * Displays structured information about variable
-     * 
+     *
      * @param mixed $val
      */
     public static function varDump($val)
@@ -196,9 +196,9 @@ class Vrbl
      * @param mixed $val
      * @param boolean $return
      */
-    public static function varExport($val,$return=false)
+    public static function varExport($val, $return=false)
     {
-        return var_export($val,$return);   
+        return var_export($val, $return);
     }
     
     /**

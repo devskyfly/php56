@@ -22,7 +22,7 @@ class ExcpErr
     
     /**
      * Return debug back trace in array
-     * 
+     *
      * @return array
      */
     public static function getDebugBackTrace()
@@ -37,24 +37,22 @@ class ExcpErr
     
     /**
      * Log error message
-     * 
+     *
      * @param string $message
      * @param number $message_type
      * @param string $destination
      * @param string $extra_headers
      * @return boolean
      */
-    public static function  logError($message,$message_type=0,$destination,$extra_headers)
+    public static function logError($message, $message_type=0, $destination, $extra_headers)
     {
         $result=false;
         
-        if(isset($destination))
-        {
+        if (isset($destination)) {
             $result=error_log();
         }
         
-        if(isset($extra_headers))
-        {
+        if (isset($extra_headers)) {
             $result=error_log();
         }
         return $result;
@@ -62,22 +60,22 @@ class ExcpErr
 
     /**
      * Set error level reporting
-     * 
+     *
      * @param int $level
      * @return int
      */
-    public static function  setErrorReportingLevel($level)
-    {   
+    public static function setErrorReportingLevel($level)
+    {
         return error_reporting($level);
     }
     
     /**
      * Get error level reporting
-     * 
+     *
      * @param int $level
      * @return int
      */
-    public static function  getErrorReportingLevel()
+    public static function getErrorReportingLevel()
     {
         return error_reporting();
     }
@@ -91,16 +89,16 @@ class ExcpErr
      * @param int $type
      * @return mixed
      */
-    public static function setErrorHandler($handler,$type= E_ALL | E_STRICT)
+    public static function setErrorHandler($handler, $type= E_ALL | E_STRICT)
     {
-        return set_error_handler($handler,$type);
+        return set_error_handler($handler, $type);
     }
     
     /**
      * Set exception handler
-     * 
+     *
      * Handler function have to be void handler(Exception $exc)
-     * 
+     *
      * @param string $handler - function name
      * @return mixed
      */
@@ -111,7 +109,7 @@ class ExcpErr
     
     /**
      * Restore previous error handler
-     * 
+     *
      * @return boolean
      */
     public static function restoreErrorHandler()
@@ -131,13 +129,13 @@ class ExcpErr
     
     /**
      * Invoke user error
-     * 
+     *
      * @param string $msg
      * @param int $type
      * @return boolean
      */
-    public static function triggerError($msg,$type=E_USER_NOTICE)
+    public static function triggerError($msg, $type=E_USER_NOTICE)
     {
-        return trigger_error($msg,$type);
+        return trigger_error($msg, $type);
     }
 }

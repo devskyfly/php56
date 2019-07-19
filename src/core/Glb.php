@@ -3,10 +3,9 @@ namespace devskyfly\php56\core;
 
 use devskyfly\php56\types\Vrbl;
 
-
 /**
  * Give access to super global constants/
- * 
+ *
  * In some way this class dublicate Server class.
  * @author devskyfly
  *
@@ -17,12 +16,12 @@ class Glb
     {
         $arr=$_GLOBALS;
         
-        if(Vrbl::isNUll($key)){
+        if (Vrbl::isNUll($key)) {
             return $arr;
-        }else{
-            if(isset($arr[$key])){
+        } else {
+            if (isset($arr[$key])) {
                 return $arr[$key];
-            }else{
+            } else {
                 return null;
             }
         }
@@ -32,12 +31,12 @@ class Glb
     {
         $arr=$_SERVER;
         
-        if(Vrbl::isNUll($key)){
+        if (Vrbl::isNUll($key)) {
             return $arr;
-        }else{
-            if(isset($arr[$key])){
+        } else {
+            if (isset($arr[$key])) {
                 return $arr[$key];
-            }else{
+            } else {
                 return null;
             }
         }
@@ -47,12 +46,12 @@ class Glb
     {
         $arr=$_GET;
         
-        if(Vrbl::isNUll($key)){
+        if (Vrbl::isNUll($key)) {
             return $arr;
-        }else{
-            if(isset($arr[$key])){
+        } else {
+            if (isset($arr[$key])) {
                 return $arr[$key];
-            }else{
+            } else {
                 return null;
             }
         }
@@ -62,12 +61,12 @@ class Glb
     {
         $arr=$_POST;
         
-        if(Vrbl::isNUll($key)){
+        if (Vrbl::isNUll($key)) {
             return $arr;
-        }else{
-            if(isset($arr[$key])){
+        } else {
+            if (isset($arr[$key])) {
                 return $arr[$key];
-            }else{
+            } else {
                 return null;
             }
         }
@@ -77,12 +76,12 @@ class Glb
     {
         $arr=$_FILES;
         
-        if(Vrbl::isNUll($key)){
+        if (Vrbl::isNUll($key)) {
             return $arr;
-        }else{
-            if(isset($arr[$key])){
+        } else {
+            if (isset($arr[$key])) {
                 return $arr[$key];
-            }else{
+            } else {
                 return null;
             }
         }
@@ -92,12 +91,12 @@ class Glb
     {
         $arr=$_REQUEST;
         
-        if(Vrbl::isNUll($key)){
+        if (Vrbl::isNUll($key)) {
             return $arr;
-        }else{
-            if(isset($arr[$key])){
+        } else {
+            if (isset($arr[$key])) {
                 return $arr[$key];
-            }else{
+            } else {
                 return null;
             }
         }
@@ -107,12 +106,12 @@ class Glb
     {
         $arr=$_SESSION;
         
-        if(Vrbl::isNUll($key)){
+        if (Vrbl::isNUll($key)) {
             return $arr;
-        }else{
-            if(isset($arr[$key])){
+        } else {
+            if (isset($arr[$key])) {
                 return $arr[$key];
-            }else{
+            } else {
                 return null;
             }
         }
@@ -122,12 +121,12 @@ class Glb
     {
         $arr=$_ENV;
         
-        if(Vrbl::isNUll($key)){
+        if (Vrbl::isNUll($key)) {
             return $arr;
-        }else{
-            if(isset($arr[$key])){
+        } else {
+            if (isset($arr[$key])) {
                 return $arr[$key];
-            }else{
+            } else {
                 return null;
             }
         }
@@ -137,12 +136,12 @@ class Glb
     {
         $arr=$_COOKIE;
         
-        if(Vrbl::isNUll($key)){
+        if (Vrbl::isNUll($key)) {
             return $arr;
-        }else{
-            if(isset($arr[$key])){
+        } else {
+            if (isset($arr[$key])) {
                 return $arr[$key];
-            }else{
+            } else {
                 return null;
             }
         }
@@ -152,12 +151,12 @@ class Glb
     {
         $arr=$HTTP_RAW_POST_DATA;
         
-        if(Vrbl::isNUll($key)){
+        if (Vrbl::isNUll($key)) {
             return $arr;
-        }else{
-            if(isset($arr[$key])){
+        } else {
+            if (isset($arr[$key])) {
                 return $arr[$key];
-            }else{
+            } else {
                 return null;
             }
         }
@@ -167,12 +166,12 @@ class Glb
     {
         $arr=$http_response_header;
         
-        if(Vrbl::isNUll($key)){
+        if (Vrbl::isNUll($key)) {
             return $arr;
-        }else{
-            if(isset($arr[$key])){
+        } else {
+            if (isset($arr[$key])) {
                 return $arr[$key];
-            }else{
+            } else {
                 return null;
             }
         }

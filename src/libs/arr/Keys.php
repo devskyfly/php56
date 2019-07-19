@@ -19,7 +19,7 @@ class Keys
      */
     public static function getKeys($array)
     {
-        if(!Arr::isArray($array)){
+        if (!Arr::isArray($array)) {
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         return array_keys();
@@ -32,15 +32,15 @@ class Keys
      * @throws \Exception
      * @return boolean
      */
-    public static function keyExists($array,$key)
+    public static function keyExists($array, $key)
     {
-        if(!Arr::isArray($array)){
+        if (!Arr::isArray($array)) {
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         
-        if((!Nmbr::isInteger($key))
-            ||(!Str::isString($key))){
-                throw new \InvalidArgumentException('Param $key is not string or integer type.');
+        if ((!Nmbr::isInteger($key))
+            ||(!Str::isString($key))) {
+            throw new \InvalidArgumentException('Param $key is not string or integer type.');
         }
         
         return array_key_exists($key, $array);
@@ -54,7 +54,7 @@ class Keys
      */
     public static function keysToLowerCase($array)
     {
-        return array_change_key_case($array,self::CASE_LOWER);
+        return array_change_key_case($array, self::CASE_LOWER);
     }
     
     /**
@@ -64,7 +64,6 @@ class Keys
      */
     public static function keysToUpperCase($array)
     {
-        return array_change_key_case($array,self::CASE_UPPER);
+        return array_change_key_case($array, self::CASE_UPPER);
     }
-    
 }

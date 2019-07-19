@@ -27,19 +27,17 @@ class Cli
 
     /**
      * Return params array passed to script
-     * @param string $keys_list [a-z|A-Z|0-9] "ij:k::" - "i" without value, "j" require value, "k" does not require value 
-     * @param array $dbl_keys_list [a-z|A-Z|0-9] ["i", "j:", "k::"] - "i" without value, "j" require value, "k" does not require value 
+     * @param string $keys_list [a-z|A-Z|0-9] "ij:k::" - "i" without value, "j" require value, "k" does not require value
+     * @param array $dbl_keys_list [a-z|A-Z|0-9] ["i", "j:", "k::"] - "i" without value, "j" require value, "k" does not require value
      * @return array | false
      */
     public static function getParams($keys_list, $dbl_keys_list="")
     {
-        if(Vrbl::isEmpty($dbl_keys_list))
-        {
+        if (Vrbl::isEmpty($dbl_keys_list)) {
             return getopt($keys_list);
-        }else{
-            return getopt($keys_list,$dbl_keys_list);
+        } else {
+            return getopt($keys_list, $dbl_keys_list);
         }
-        
     }
 
     /**
@@ -53,7 +51,7 @@ class Cli
     
     /**
      * Return arguments passed to script in array
-     * 
+     *
      * Zero index of array is script name. Other indexes are arguments passed to script
      * @return array
      */

@@ -5,10 +5,10 @@ class Str
 {
     /**
      * Define whether the variable is string
-     * 
+     *
      * @param mixed $val
      * @return boolean
-     */    
+     */
     public static function isString($val)
     {
         return is_string($val);
@@ -16,7 +16,7 @@ class Str
     
     /**
      * Return the string value of a variable
-     * 
+     *
      * @param mixed $val
      * @return string
      */
@@ -28,7 +28,7 @@ class Str
     
     /**
      * Join array elements eith string.
-     * 
+     *
      * @param string $glue
      * @param array $pieses
      * @throws \InvalidArgumentException
@@ -36,12 +36,12 @@ class Str
      */
     public static function implode($glue, $pieses)
     {
-        if(!Str::isString($glue)){
+        if (!Str::isString($glue)) {
             throw new \InvalidArgumentException('Parameter $glue is not string type.');
         }
-        if(!Arr::isArray($pieses)){
+        if (!Arr::isArray($pieses)) {
             throw new \InvalidArgumentException('Parameter $pieses is not array type.');
         }
-        return implode($glue,$pieses);
+        return implode($glue, $pieses);
     }
 }

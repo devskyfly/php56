@@ -10,14 +10,27 @@ class RoboFile extends \Robo\Tasks
 {
     use Robo\Task\Base\loadShortcuts;
 
-    // define public methods as commands
-    public function testsRun()
+    //TESTS
+
+    public function testsUnit()
     {
         $tsk = $this->_exec("./vendor/codeception/codeception/codecept run unit");
     }
 
+    public function testsFunctional()
+    {
+        $tsk = $this->_exec("./vendor/codeception/codeception/codecept run functional");
+    }
+
+    public function testsAcceptance()
+    {
+        $tsk = $this->_exec("./vendor/codeception/codeception/codecept run acceptance");
+    }
+
+    //PSR
+
     public function codeFix()
     {
-        $tsk = $this->_exec("./vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix ./src"); 
+        $tsk = $this->_exec("./vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix ./src --verbose"); 
     }
 }

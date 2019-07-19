@@ -5,7 +5,7 @@ class Incl
 {
     /**
      * Return files names of included files to script
-     * 
+     *
      * @return array
      */
     public static function getFiles()
