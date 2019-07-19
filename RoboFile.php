@@ -27,9 +27,14 @@ class RoboFile extends \Robo\Tasks
         $tsk = $this->_exec("./vendor/codeception/codeception/codecept run acceptance");
     }
 
-    //PSR
+    //PHP-CS
 
-    public function codeFix()
+    public function phpcsSrc()
+    {
+        $tsk = $this->_exec("./vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix ./src --verbose"); 
+    }
+
+    public function phpcsTests()
     {
         $tsk = $this->_exec("./vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix ./src --verbose"); 
     }
