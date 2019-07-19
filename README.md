@@ -7,12 +7,12 @@ So i try to structure functions and constants by related classes and namespaces.
 
 **N.B**  But it is impossible to redeclarate following items:
 
-functions
+### Functions
 
 - isset() //check variable definition in local scope
 - unset() //delete variable link name in local scope
 
-constants
+### Constants
 
 - \__LINE__ //current executing file line
 - \__FILE__ //current executing file

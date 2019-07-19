@@ -69,14 +69,14 @@ class Arr
     }
     
     /**
-     * Return array with keys that were values and values that equal to value freqvecy
+     * Return array with keys that were values and digit that equal to value freqvecy
      * 
      * @param array $array
      * @throws \InvalidArgumentException
      */
     public static function countValues($array)
     {
-        if(!self::isArray($array)){
+        if (!self::isArray($array)) {
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
         return array_count_values($array);
@@ -105,7 +105,7 @@ class Arr
         if(!Lgc::isBoolean($save_keys)){
             throw new \InvalidArgumentException('Param $save_keys is not bool type.');
         }
-        return array_chunk($array, $size,$save_keys);
+        return array_chunk($array, $size, $save_keys);
     }
     
     /**
