@@ -87,6 +87,7 @@ class Arr
      *
      * Return array with elements separeted by size.
      * If save_keys param is true - keys values are saved.
+     * @link https://www.php.net/manual/ru/function.array-chunk.php
      * @param array $array
      * @param int $size
      * @param boolean $save_keys
@@ -112,6 +113,8 @@ class Arr
      * Return column of passed array
      *
      * If index_key param is set, return value items would have index keys from this index key
+     * 
+     * @link https://www.php.net/manual/ru/function.array-column.php
      * @param array $array
      * @param integer|string|null $column
      * @param integer|string|null $index_column
@@ -123,12 +126,13 @@ class Arr
     }
     
     /**
-     * Return array indexed by column value, but not no ordered
+     * Return array indexed by column value, but not ordered
      *
      * Notice that returned array has index values related to column value in order.
-     * But items in result arraay is not sorted by index.
+     * But items in result array is not sorted by index.
      *
-     * @throws \InvalidArgumentException::
+     * @link https://www.php.net/manual/ru/function.array-column.php
+     * @throws \InvalidArgumentException
      * @param array $array
      * @param integer|string $index_column
      * @return array
@@ -149,6 +153,7 @@ class Arr
     /**
      * Define whether array have key
      *
+     * @link https://www.php.net/manual/ru/function.array-key-exists.php
      * @param array $array
      * @param string|integer $key
      * @throws \InvalidArgumentException
@@ -197,6 +202,7 @@ class Arr
     /**
      * Return array with keys and values consistes from passed params
      *
+     * @link https://www.php.net/manual/ru/function.array-combine.php
      * @param array $keys
      * @param array $values
      * @throws \InvalidArgumentException
@@ -211,7 +217,7 @@ class Arr
         if (!self::isArray($values)) {
             throw new \InvalidArgumentException('Param $values is not array type.');
         }
-        if (self::getSize($keys)==self::getSize($values)) {
+        if (self::getSize($keys)!=self::getSize($values)) {
             throw new \Exception('Arrays size is not equal.');
         }
         
