@@ -6,31 +6,21 @@ use devskyfly\php56\libs\arr\Diff;
 
 class ArrTest extends \Codeception\Test\Unit
 {
-    public $assoc_array=["a"=>"text 1","b"=>"text 2", "c"=>"text 3", "d"=>"text 4"];
+    public $ls1 = [1,2,3,4,5];
+    public $ls2 = [6,7,8,9,10];
 
-    public $array=["element 1","element 2","element 3","element 4","element 5"];
+    public $assoc_array = ["a"=>"text 1","b"=>"text 2", "c"=>"text 3", "d"=>"text 4"];
+    public $assoc_array2 = ["e"=>"text 5","f"=>"text 6", "g"=>"text 7", "h"=>"text 8"];
     
-    public $array_with_double_elements=["element 1","element 2","element 2","element 3","element 4","element 5"];
+    public $array = ["element 1","element 2","element 3","element 4","element 5"];
     
-    public $hash_table_array=[
+    public $array_with_double_elements = ["element 1","element 2","element 2","element 3","element 4","element 5"];
+    
+    public $hash_table_array = [
         ["name"=>'Str 1',"value"=>1],
         ["name"=>"Str 3","value"=>3],
         ["name"=>"Str 2","value"=>2],
     ];
-    
-    /**
-     * @var \UnitTester
-     */
-    protected $tester;
-    
-    protected function _before()
-    {
-    }
-
-    protected function _after()
-    {
-    }
-
     
     public function testIsArray()
     {
@@ -239,5 +229,174 @@ class ArrTest extends \Codeception\Test\Unit
             $assert = $this->hash_table_array[$i]['value']*2==$arr[$i]["value"];
             $this->assertTrue($assert);
         }
+
+        $this->expectException(\InvalidArgumentException::class);
+        $arr = Arr::map(null, $this->hash_table_array);
+        $this->expectException(\InvalidArgumentException::class);
+        $arr = Arr::map($callback, null);
+    }
+
+    public function testMerge()
+    {
+        $a = [1,2,3,4,5];
+        $b = [6,7,8,9,10];
+        $this->expectException(\InvalidArgumentException::class);
+        Arr::merge(null, []);
+        $this->expectException(\InvalidArgumentException::class);
+        Arr::merge([], null);
+        $c = Arr::merge($a, $b);
+        $this->assertTrue(Arr::getSize($c)==10);
+    }
+
+    public function testGetFilledToSizeByValue()
+    {
+        $arr = Arr::getFilledToSizeByValue($this->ls1, 10, 0);
+        $this->assertTrue(Arr::getSize($arr)==10);
+
+        for ($i = 5;$i < 10;$i++) {
+            $this->assertEquals($arr[$i], 0);
+        }  
+        
+        $this->expectException(\InvalidArgumentException::class);
+        $arr = Arr::getFilledToSizeByValue(null, 10, 0);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $arr = Arr::getFilledToSizeByValue($this->ls1, null, 0);
+    }
+
+    public function testPushItem()
+    {
+        $a = $this->ls1;
+        $size = Arr::getSize($a);
+        Arr::pushItem($a, 20);
+        $mod_size = Arr::getSize($a);
+        $this->assertEquals($size+1, $mod_size);
+        $this->assertEquals($a[$mod_size-1], 20);
+    }
+
+    public function testPopItem()
+    {
+        $a = $this->ls1;
+        $size = Arr::getSize($a);
+        for ( $i = $size-1;$i>=0;$i--) {
+            if (Arr::popItem($a, $item)) {
+                $this->assertEquals($item, $i+1);
+            }
+        }
+        
+        $result = Arr::popItem($a, $item);
+        $this->assertFalse($result);
+    }
+
+    public function testShiftItem()
+    {
+        $a = $this->ls1;
+        $size = Arr::getSize($a);
+        for ( $i = 0;$i<$size;$i++) {
+            if (Arr::shiftItem($a, $item)) {
+                $this->assertEquals($item, $i+1);
+            }
+        }
+        
+        $result = Arr::shiftItem($a, $item);
+        $this->assertFalse($result);
+    }
+
+    public function testGetProduct()
+    {
+        $summ = 1;
+        
+        foreach ($this->ls1 as $val) {
+            $summ = $summ * $val;
+        }
+        
+        $fn_summ = Arr::getProduct($this->ls1);
+
+        $this->assertEquals($summ, $fn_summ);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $arr = Arr::getProduct(null);
+    }
+
+    public function testGetSumm()
+    {
+        $summ = 0;
+        
+        foreach ($this->ls1 as $val) {
+            $summ = $summ + $val;
+        }
+        
+        $fn_summ = Arr::getSumm($this->ls1);
+
+        $this->assertEquals($summ, $fn_summ);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $arr = Arr::getProduct(null);
+    }
+
+    public function testGetRand()
+    {
+        $arr = Arr::getRand($this->ls1, 3);
+        $this->assertEquals(Arr::getSize($arr), 3);
+        
+        $this->expectException(\InvalidArgumentException::class);
+        $arr = Arr::getRand($this->ls1, 5);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $arr = Arr::getRand(null, 3);
+    }
+
+    public function testGetSlice()
+    {
+        $arr = Arr::getSlice($this->ls1, 2, 3);
+        $this->assertEquals(Arr::getSize($arr), 3);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $arr = Arr::getSlice($this->ls1, 3, 3);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $arr = Arr::getSlice($this->ls1, 2, 4);
+
+        for ($i = 0;$i<3;$i++) {
+            $this->assertEquals($arr[$i], $i+1);
+        }
+    }
+
+    public function testReplace()
+    {
+        $val = "text 45";
+        $a = $this->assoc_array;
+        $b = $this->assoc_array2;
+
+        $b['d'] = $val;
+        $c = Arr::replace($a, $b);
+        $this->assertEquals(Arr::getSize($c), 8);
+        $this->assertEquals($c["d"], $val);
+        
+        $this->expectException(\InvalidArgumentException::class);
+        $c = Arr::replace(null, $b);
+        $this->expectException(\InvalidArgumentException::class);
+        $c = Arr::replace($a, null);
+    }
+
+    public function testReverse()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $revers = Arr::reverse(null);
+        $revers = Arr::reverse($this->ls1);
+
+        $j=5;
+        for ($i=0;$i<5;$i++) {
+            $this->asssetEquals($revers[$i], $j);
+            $j--;
+        }
+    }
+
+    public function testSearch()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $index = Arr::search(null,3);
+        $index = Arr::search($this->ls1,3);
+        $this->assertEquals($index,2);
     }
 }

@@ -1,6 +1,9 @@
 <?php
 namespace devskyfly\php56\types;
 
+use OutOfBoundsException;
+
+
 class Arr
 {
     const ARRAY_FILTER_USE_KEY=ARRAY_FILTER_USE_KEY;
@@ -383,9 +386,11 @@ class Arr
     }
     
     /**
-     * Create array from another by filling it by value to definde size
+     * Create array from another by filling addition elements by value to defined size
      *
      * If $size <= size of $array only copy would return
+     * 
+     * @link https://www.php.net/manual/ru/function.array-pad.php
      * @param array $array
      * @param integer $size
      * @param mixed $value
@@ -406,6 +411,7 @@ class Arr
     /**
      * Add item to array
      *
+     * @link https://www.php.net/manual/ru/function.array-push.php
      * @param array $array
      * @param mixed $value
      * @throws \InvalidArgumentException
@@ -420,38 +426,61 @@ class Arr
     }
     
     /**
-     * Remove last item from array and return it
+     * Remove last item from array and set it to item parameter
      *
+     * @link https://www.php.net/manual/ru/function.array-pop.php
      * @param array $array
+     * @param mixed $item
      * @throws \InvalidArgumentException
-     * @return integer
+     * @return bool
      */
-    public static function popItem(&$array)
+    public static function popItem(&$array, &$item)
     {
         if (!self::isArray($array)) {
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        return array_pop($array);
+
+        $val = array_pop($array);
+        
+        if (Vrbl::isNull($val)) {
+            return false;
+        } else {
+            $item = $val;
+            return true;
+        }
     }
     
     /**
      * Return first item of array, decrease array length.
      *
      * All digit keys would be edited by order from 0, all string keys save old values
+     * 
+     * @link https://www.php.net/manual/ru/function.array-shift.php
      * @param array $array
+     * @param mixed $item
      * @throws \InvalidArgumentException
      * @return mixed
      */
-    public static function shiftItem(&$array)
+    public static function shiftItem(&$array, &$item)
     {
         if (!self::isArray($array)) {
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        return array_shift($array);
+
+        $val = array_shift($array);
+        
+        if (Vrbl::isNull($val)) {
+            return false;
+        } else {
+            $item = $val;
+            return true;
+        }
     }
     
     /**
      * Product array element and return it
+     * 
+     * @link https://www.php.net/manual/ru/function.array-product.php
      * @param array $array
      * @throws \InvalidArgumentException
      * @return number
@@ -461,12 +490,13 @@ class Arr
         if (!self::isArray($array)) {
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        return product($array);
+        return array_product($array);
     }
     
     /**
      * Sum array element and return it
      *
+     * @link https://www.php.net/manual/ru/function.array-sum.php
      * @param array $array
      * @throws \InvalidArgumentException
      * @return number
@@ -482,6 +512,7 @@ class Arr
     /**
      * Return serveral random array elements
      *
+     * @link https://www.php.net/manual/ru/function.array-rand.php
      * @param array $array
      * @param number $num
      * @throws \InvalidArgumentException
@@ -495,11 +526,17 @@ class Arr
         if (!Nmbr::isInteger($num)) {
             throw new \InvalidArgumentException('Param $num is not integer type.');
         }
+
+        if (Arr::getSize($array)<=$num) {
+            throw new \InvalidArgumentException('Param $num is bigger then passed $array size.');
+        }
         return array_rand($array, $num);
     }
     
     /**
-     * Return
+     * Return slice of array
+     * 
+     * @link https://www.php.net/manual/ru/function.array-slice.php
      * @param array $array
      * @param integer $offset
      * @param integer|null $length
@@ -515,15 +552,15 @@ class Arr
             throw new \InvalidArgumentException('Param $offset is not integer type.');
         }
         if (!Vrbl::isNull($length)) {
-            if (!Vrbl::isNumber($length)) {
+            if (!Nmbr::isInteger($length)) {
                 throw new \InvalidArgumentException('Param $length is not integer type.');
             }
             $cnt=self::getSize($array);
             if ($cnt<($offset+$length)) {
-                throw new \LengthException('Array slice is bigger then target array.');
+                throw new \InvalidArgumentException('Array slice is bigger then target array.');
             }
         }
-        return array_slice($array, $num, $length);
+        return array_slice($array, $offset, $length);
     }
     
     
@@ -547,7 +584,7 @@ class Arr
             throw new \InvalidArgumentException('Param $offset is not integer type.');
         }
         if (!Vrbl::isNull($length)) {
-            if (!Vrbl::isNumber($length)) {
+            if (!Nmbr::isNumber($length)) {
                 throw new \InvalidArgumentException('Param $length is not integer type.');
             }
             $cnt=self::getSize($array);
@@ -562,11 +599,13 @@ class Arr
     }
     
     /**
-     * Replace elements in master array from slave array if keys do not exist, and replace elements if keys are equal
+     * Replace elements in master array  by elements from slave array by equal keys, and add elements from slave array to master if there is no such keys in master like in slave.
      *
+     * @link https://www.php.net/manual/ru/function.array-replace.php
      * @param array $master
      * @param array $slave
      * @throws \InvalidArgumentException
+     * @throws \RuntimeException
      * @return array
      */
     public static function replace($master, $slave)
@@ -577,12 +616,20 @@ class Arr
         if (!self::isArray($slave)) {
             throw new \InvalidArgumentException('Param $slave is not array type.');
         }
+
+        $result = array_replace($master, $slave);
+
+        if (Vrbl::isNull($result)) {
+            throw new \RuntimeException("Execution of array_replace function was crashed.");
+        }
+
         return array_replace($master, $slave);
     }
     
     /**
      * Return array with element binded with keys in reverse order
      *
+     * @link https://www.php.net/manual/ru/function.array-reverse.php
      * @param array $array
      * @throws \InvalidArgumentException
      * @return array
@@ -596,8 +643,9 @@ class Arr
     }
     
     /**
-     * Search first match and return its index
+     * Search first match and return its first index
      *
+     * @link https://www.php.net/manual/ru/function.array-search.php
      * @param array $array
      * @param mixed $target
      * @throws \InvalidArgumentException
