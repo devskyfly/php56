@@ -11,6 +11,7 @@ So i try to structure functions and constants by related classes and namespaces.
 
 - isset() //check variable definition in local scope
 - unset() //delete variable link name in local scope
+- get_defined_vars() //get all defined variables
 
 ### Constants
 

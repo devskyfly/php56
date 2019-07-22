@@ -11,6 +11,7 @@ class Rsrc
     /**
      * Define whether the variable is resource
      *
+     * @link https://www.php.net/manual/en/function.is-resource.php
      * @param mixed $val
      * @return boolean
      */
@@ -24,6 +25,8 @@ class Rsrc
      *
      * Return string representation of resource type. String will be "Unknown" if resource is not defined.
      * If type $resource is not resorce return NULL and generate error.
+     *
+     * @link https://www.php.net/manual/en/function.get-resource-type.php
      * @param resource $resource
      * @return string | null
      */

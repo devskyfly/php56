@@ -1,21 +1,10 @@
 <?php
 namespace devskyfly\php56\types;
 
+use Symfony\Component\Process\Exception\InvalidArgumentException;
+
 class StrTest extends \Codeception\Test\Unit
 {
-    /**
-     * @var \UnitTester
-     */
-    protected $tester;
-    
-    protected function _before()
-    {
-    }
-
-    protected function _after()
-    {
-    }
-
     public function testIsString()
     {
         $str="Some test";
@@ -30,5 +19,16 @@ class StrTest extends \Codeception\Test\Unit
         $val=123;
         $str=Str::toString($val);
         $this->assertTrue(Str::isString($str));
+    }
+
+    public function testImplode()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $result = Str::implode(null, ['one', 'two']);
+        $this->expectException(\InvalidArgumentException::class);
+        $result = Str::implode(":", null);
+
+        $result = Str::implode(";", ['one', 'two']);
+        $this->assertEquals($result, "one;two");
     }
 }

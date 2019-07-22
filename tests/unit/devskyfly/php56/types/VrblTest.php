@@ -5,20 +5,29 @@ use phpDocumentor\Reflection\Types\Null_;
 
 class VrblTest extends \Codeception\Test\Unit
 {
-    /**
-     * @var \UnitTester
-     */
-    protected $tester;
-    
-    protected function _before()
-    {
-    }
-
-    protected function _after()
-    {
-    }
-
     // tests
+    public function testGetValue()
+    {
+        $arr=["a"=>"val"];
+        
+        $val = Vrbl::getValue($arr, "a");
+        $this->assertEquals($val, $arr["a"]);
+
+        /*$val = Vrbl::getValue($arr, "b");
+        $this->assertTrue(Vrbl::isNull($val));*/
+    }
+
+    public function testIsNull()
+    {
+        $val=null;
+        $result=Vrbl::isNull($val);
+        $this->assertTrue($result);
+        
+        $val=1;
+        $result=Vrbl::isNull($val);
+        $this->assertFalse($result);
+    }
+
     public function testIsEmpty()
     {
         $val="";
@@ -43,17 +52,6 @@ class VrblTest extends \Codeception\Test\Unit
         
         $val=[1];
         $result=Vrbl::isEmpty($val);
-        $this->assertFalse($result);
-    }
-    
-    public function testIsNull()
-    {
-        $val=null;
-        $result=Vrbl::isNull($val);
-        $this->assertTrue($result);
-        
-        $val=1;
-        $result=Vrbl::isNull($val);
         $this->assertFalse($result);
     }
     
@@ -84,27 +82,27 @@ class VrblTest extends \Codeception\Test\Unit
         $this->assertFalse($result);
     }
     
-    /* public function testIsIterable()
+     public function testIsIterable()
     {
         $val=[1,2,3];
-        $result=Variable::isIterable($val);
+        $result=Vrbl::isIterable($val);
         $this->assertTrue($result);
 
         $val="string";
-        $result=Variable::isIterable($val);
+        $result=Vrbl::isIterable($val);
         $this->assertFalse($result);
     }
-
-    public function testIsCountable()
+    
+    /*public function testIsCountable()
     {
         $val=[1,2,3];
-        $result=Variable::isCountable($val);
+        $result=Vrbl::isCountable($val);
         $this->assertTrue($result);
 
         $val="string";
-        $result=Variable::isCountable($val);
+        $result=Vrbl::isCountable($val);
         $this->assertFalse($result);
-    } */
+    }*/
     
     
     public function testIsCallable()
@@ -158,5 +156,32 @@ class VrblTest extends \Codeception\Test\Unit
         $this->assertTrue(Vrbl::setType($val, "array"));
         $this->assertTrue(Vrbl::setType($val, "boolean"));
         $this->assertTrue(Vrbl::setType($val, "object"));
+    }
+
+    public function testPrintR()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        Vrbl::printR("str",null);
+
+        $val = Vrbl::printR("str",true);
+        $this->assertTrue(Str::isString($val));
+    }
+
+    public function testRPrintR()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        Vrbl::printR("str",null);
+
+        $val = Vrbl::rPrintR("str",true);
+        $this->assertTrue(Str::isString($val));
+    }
+
+    public function testVarExport()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        Vrbl::varExport("str",null);
+
+        $val = Vrbl::varExport("str",true);
+        $this->assertTrue(Str::isString($val));
     }
 }

@@ -6,6 +6,7 @@ class Str
     /**
      * Define whether the variable is string
      *
+     * @link https://www.php.net/manual/en/function.is-string.php
      * @param mixed $val
      * @return boolean
      */
@@ -17,6 +18,7 @@ class Str
     /**
      * Return the string value of a variable
      *
+     * @link https://www.php.net/manual/en/function.strval.php
      * @param mixed $val
      * @return string
      */
@@ -29,6 +31,7 @@ class Str
     /**
      * Join array elements eith string.
      *
+     * @link https://www.php.net/manual/en/function.implode.php
      * @param string $glue
      * @param array $pieses
      * @throws \InvalidArgumentException
