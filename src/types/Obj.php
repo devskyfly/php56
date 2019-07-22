@@ -5,6 +5,10 @@ class Obj
 {
     /**
      * Return class name including namespace
+     * 
+     * @link https://www.php.net/manual/en/function.get-class.php
+     * @param object $name
+     * @throws \InvalidArgumentException
      * @return string
      */
     public static function getClassName($object)
@@ -16,8 +20,9 @@ class Obj
     }
     
     /**
-     * Define whether the variable is boolean
+     * Define whether the variable is object
      *
+     * @link https://www.php.net/manual/en/function.is-object.php
      * @param mixed $val
      * @return boolean
      */
@@ -27,9 +32,10 @@ class Obj
     }
     
     /**
-     * Define whether object belongs to curent class or this class is object parent
+     * Define whether object belongs to current class or this class is object parent
      *
-     * @param object $object
+     * @link https://www.php.net/manual/en/function.is-a.php
+     * @param object|string $object - object or class name
      * @param string $class_name
      * @return boolean
      */
@@ -39,8 +45,9 @@ class Obj
     }
     
     /**
-     * Define whether the class or object is sub class of target class
+     * Define whether the class or object is sub class of target class or implements it
      *
+     * @link https://www.php.net/manual/en/function.is-subclass-of.php
      * @param object|string $object - object or class name
      * @param string $class_name
      * @return bool
