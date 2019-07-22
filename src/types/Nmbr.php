@@ -1,12 +1,25 @@
 <?php
 namespace devskyfly\php56\types;
 
+use RangeException;
+
 class Nmbr
 {
+    const PI=M_PI;
+    const E=M_E;
+    const LOG2E=M_LOG2E;
+    const LN2=M_LN2;
+    const LN10=M_LN10;
+    const EULER=M_EULER;
     const NAN=NaN;
     const EPSILON=0.00001;
     const INT_SIZE=PHP_INT_SIZE;
     const INT_MAX=PHP_INT_MAX;
+    const ROUND_HALF_UP=PHP_ROUND_HALF_UP;
+    const ROUND_HALF_DOWN=PHP_ROUND_HALF_DOWN;
+    const ROUND_HALF_EVEN=PHP_ROUND_HALF_EVEN;
+    const ROUND_HALF_ODD=PHP_ROUND_HALF_ODD;
+
     /**
      *
      * @link https://www.php.net/manual/en/language.types.float.php#language.types.float.comparison
@@ -153,5 +166,107 @@ class Nmbr
             throw new \InvalidArgumentException("Param val is not numeric.");
         }
         return intval($val);
+    }
+
+    /**
+     * Return absolute value of passed param
+     *
+     * @link https://www.php.net/manual/en/function.abs.php
+     * @param number $val
+     * @return number
+     */
+    public static function abs($val)
+    {
+        if (!self::isNumeric($val)) {
+            throw new \InvalidArgumentException("Param val is not numeric.");
+        }
+
+        return abs($val);
+    }
+
+    /**
+     * Round value down to nearest int.
+     *
+     * @link https://www.php.net/manual/en/function.floor.php
+     * @param number $val
+     * @throws \InvalidArgumentException
+     * @throws \RuntimeException
+     * @return void
+     */
+    public static function roundDown($val)
+    {
+        if (!self::isNumeric($val)) {
+            throw new \InvalidArgumentException("Param val is not numeric.");
+        }
+
+        $result = floor($val);
+        if ($result === false) {
+            throw \RuntimeException('Function floor crashed.');
+        }
+
+        return $result;
+    }
+
+    /**
+     * Round value up to nearest int.
+     *
+     * @link https://www.php.net/manual/en/function.ceil.php
+     * @param number $val
+     * @throws \InvalidArgumentException
+     * @throws \RuntimeException
+     * @return void
+     */
+    public static function roundUp($val)
+    {
+        if (!self::isNumeric($val)) {
+            throw new \InvalidArgumentException("Param val is not numeric.");
+        }
+
+        $result = ceil($val);
+        if ($result === false) {
+            throw \RuntimeException('Function floor crashed.');
+        }
+
+        return $result;
+    }
+
+    /**
+     * Round value
+     *
+     * @link https://www.php.net/manual/en/function.round.php
+     * @param number  $val
+     * @param integer $precision
+     * @param integer $mode
+     * @throws \InvalidArgumentException
+     * @throws \RangeException
+     * @return number
+     */
+    public static function round($val, $precision = 0, $mode = self::ROUND_HALF_UP)
+    {
+        if (!self::isInteger($mode)) {
+            throw new \InvalidArgumentException('Param $mode is not integer.');
+        }
+
+        if (($mode != self::ROUND_HALF_UP) 
+            && ($mode != self::ROUND_HALF_DOWN)
+            && ($mode != self::ROUND_HALF_ODD)
+            && ($mode != self::ROUND_HALF_EVEN)
+        ) {
+            throw new RangeException('Param $mode is out of the range.');
+        }
+
+        if (!self::isNumeric($val)) {
+            throw new \InvalidArgumentException('Param $val is not numeric.');
+        }
+
+        if (!self::isInteger($presition)) {
+            throw new \InvalidArgumentException('Param $precision is not integer.');
+        }
+        
+        if ($precition < 0) {
+            throw new \InvalidArgumentException('Param $precision is not positive.');
+        }
+
+        return round($val, $precision, $mode);
     }
 }

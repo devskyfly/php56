@@ -122,4 +122,74 @@ class NmbrTest extends \Codeception\Test\Unit
         $val="str";
         $result=Nmbr::toIntegerStrict($val);
     }
+
+    public function testAbs()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $val="str";
+        $result=Nmbr::abs($val);
+
+        $val=5;
+        $result=Nmbr::abs($val);
+        $this->assertEquals($result,$val);
+
+        $val=-5;
+        $result=Nmbr::abs($val);
+        $this->assertEquals($result,(-1)*($val));
+    }
+
+    public function testRoundDown()
+    {
+        $this->assertEquals(Nmbr::roundDown(4.5),4);
+
+        $this->assertEquals(Nmbr::roundDown(-4.5),-5);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $val="str";
+        $result=Nmbr::roundDown($val);
+    }
+
+    public function testRoundUp()
+    {
+        $this->assertEquals(Nmbr::roundUp(4.5),5);
+
+        $this->assertEquals(Nmbr::roundUp(-4.5),-4);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $val="str";
+        $result=Nmbr::roundUp($val);
+    }
+
+    public function testRound()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        Nmbr::round("str");
+
+        $this->expectException(\InvalidArgumentException::class);
+        Nmbr::round(1.5, "str");
+
+        $this->expectException(\RangeException::class);
+        Nmbr::round(1.5, 1, "str");
+
+        $this->expectException(\RangeException::class);
+        Nmbr::round(1.5, 1, -1);
+
+        $result=Nmbr::round(1.55, 1);
+        $this->aseertTrue(Nmbr::isEqual($result, 1.6));
+
+        $result=Nmbr::round(1.555, 2);
+        $this->aseertTrue(Nmbr::isEqual($result, 1.56));
+
+        $result=Nmbr::round(1.55, 1, Nmbr::ROUND_HALF_DOWN);
+        $this->aseertTrue(Nmbr::isEqual($result, 1.5));
+
+        $result=Nmbr::round(1.555, 2, Nmbr::ROUND_HALF_DOWN);
+        $this->aseertTrue(Nmbr::isEqual($result, 1.55));
+
+        $result=Nmbr::round(1.55, 1, Nmbr::ROUND_HALF_ODD);
+        $this->aseertTrue(Nmbr::isEqual($result, 1.7));
+
+        $result=Nmbr::round(1.55, 1, Nmbr::ROUND_HALF_EVEN);
+        $this->aseertTrue(Nmbr::isEqual($result, 1.6));
+    }
 }
