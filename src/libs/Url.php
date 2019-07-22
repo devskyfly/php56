@@ -51,26 +51,52 @@ class Url
     }
     
     /**
-     * Return parsed url
+     * Return parsed url.
      *
+     * Return array:
      * 
+     * scheme - e.g. http
+     * host
+     * port
+     * user
+     * pass
+     * path
+     * query - after the question mark ?
+     * fragment - after the hashmark #
+     * 
+     * @link https://www.php.net/manual/en/function.parse-url.php
      * @param string $url
-     * @throws \Exception
+     * @throws \InvalidArgumentException
+     * @throws \RuntimeException
      * @return mixed
      */
-    public static function parseQuery($url)
-    {
-        $result=parse_url($url);
-        if ($result===false) {
-            throw new \Exception('Url parse error.');
+    public static function parseQuery($url /*, $remove_db_slash = false*/)
+    {   
+        /*if (!Lgc::isBoolean($remove_db_slash)) {
+            throw new \InvalidArgumentException('Param $remove_db_slash is not boolean type.');
+        }*/
+
+        if (!Str::isString($url)) {
+            throw new \InvalidArgumentException('Param $url is not string type.');
         }
+
+        /*if ($remove_db_slash) {
+            $url = mb_ereg_replace("//", "/", $url);
+        }*/
+
+        $result = parse_url($url);
+
+        if ($result===false) {
+            throw new \RuntimeException('parse_url function crashed.');
+        }
+
         return $result;
     }
     
     /**
      * Return encoded string like application/x-www-form-urlencoded
      *
-     * @todo test
+     * @link https://www.php.net/manual/en/function.urlencode.php
      * @param string $str
      * @return string
      */
@@ -82,7 +108,7 @@ class Url
     /**
      * Return decode urlencoded string
      *
-     * @todo test
+     * @link https://www.php.net/manual/en/function.urldecode.php
      * @param string $str
      * @return string
      */
@@ -94,7 +120,7 @@ class Url
     /**
      * Return encoded string by RFC 3986
      *
-     * @todo test
+     * @link https://www.php.net/manual/en/function.rawurlencode.php
      * @param $str
      * @return string
      */
@@ -106,7 +132,7 @@ class Url
     /**
      * Return decoded string by RFC 3986
      *
-     * @todo test
+     * @link https://www.php.net/manual/en/function.rawurldecode.php
      * @param $str
      * @return string
      */

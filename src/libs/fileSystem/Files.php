@@ -9,20 +9,21 @@ class Files
      * Delete file.
      *
      * N.B. Generate E_WARNING error on failure.
+     * 
+     * @deprecated
      * @param string $path - file name
+     * @throws \InvalidArgumentException
      * @return boolean
      */
     public static function deleteFile($path)
     {
-        if (!Str::isString($path)) {
-            throw new \InvalidArgumentException('Parameter $path is not string type');
-        }
-        return unlink($path);
+        return System::delete($path);
     }
     
     /**
      * Define whether file exists.
      *
+     * @deprecated
      * @param string $path
      * @return boolean
      */
@@ -34,6 +35,7 @@ class Files
     /**
      * Check  is file.
      *
+     * @link https://www.php.net/manual/en/function.is-file.php
      * @param string $path
      * @return boolean
      */

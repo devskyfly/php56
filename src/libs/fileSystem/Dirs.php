@@ -3,14 +3,21 @@ namespace devskyfly\php56\libs\fileSystem;
 
 use devskyfly\php56\types\Str;
 
+/**
+ * @todo Need to cover by tests
+ */
 class Dirs
 {
 
     /**
      * Delete dir only if empty.
      *
-     * N.B. Generate E_WARNING error on failure.
+     * Directory must be empty
+     * 
+     * @link https://www.php.net/manual/en/function.rmdir.php
      * @param string $path
+     * @throws E_WARNING
+     * @todo Need to cover by tests
      * @return boolean
      */
     public static function deleteDir($path)
@@ -22,10 +29,11 @@ class Dirs
     }
     
     /**
-     * Delete dir recursively.
+     * Delete hole dir recursively with its files.
      *
-     * N.B. Generate E_WARNING error on failure.
      * @param string $path
+     * @throws E_WARNING
+     * @todo Need to cover by tests
      * @return boolean
      */
     public static function deleteDirR($path)
@@ -44,6 +52,8 @@ class Dirs
     /**
      * Define whether file exists.
      *
+     * @link https://www.php.net/manual/en/function.file-exists.php
+     * @deprecated
      * @param string $path
      * @return boolean
      */
@@ -56,6 +66,7 @@ class Dirs
     /**
      * Check is dir.
      *
+     * @link https://www.php.net/manual/en/function.is-dir.php
      * @param string $path
      * @return boolean
      */
@@ -71,23 +82,24 @@ class Dirs
     /**
      * Return files and directories by pattern.
      *
+     * @deprecated
+     * @link https://www.php.net/manual/en/function.glob.php
      * @param string $pattern
+     * @throws \InvalidArgumentException
+     * @throws \RuntimeException
      * @return []
      */
     public static function getFilesByPattern($pattern)
     {
-        if (!Str::isString($pattern)) {
-            throw new \InvalidArgumentException('Parameter $pattern is not string type');
-        }
-        return glob($pattern);
+        System::getFilesByPattern($pattern);
     }
     
     /**
      * List files and directories inside $path
      *
-     * N.B. Generate E_WARNING error on failure.
      * @param string $path
      * @throws \InvalidArgumentException
+     * @throws E_WARNING
      * @return array
      */
     public static function scanDir($path)
