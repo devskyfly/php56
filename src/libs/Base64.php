@@ -1,10 +1,17 @@
 <?php
 namespace devskyfly\php56\libs;
 
+/**
+ * Provide use wraped spl functions for base64.
+ * 
+ * @todo Need to cover by tests
+ */
 class Base64
 {
     /**
      * Encode string in base64
+     * 
+     * @link https://www.php.net/manual/en/function.base64-encode.php
      * @param string $val
      * @return string
      */
@@ -14,22 +21,19 @@ class Base64
     }
     
     /**
-     * Decode base64 string. Return false on error.
+     * Decode base64 string.
+     * 
+     * @link https://www.php.net/manual/en/function.base64-decode.php
      * @param string $val
-     * @return string|false
+     * @throws \RuntimeException
+     * @return string
      */
     public static function decodeStrict($val)
     {
-        return base64_decode($val, true);
-    }
-    
-    /**
-     * Decode base64 string.
-     * @param string $val
-     * @return string
-     */
-    public static function decodeStrinct($val)
-    {
-        return base64_decode($val);
-    }
+        $result = base64_decode($val, true);
+        if ($result == false) {
+            throw new \RuntimeException('base64_decode function crashed.');
+        }
+        return $result;
+    }   
 }
