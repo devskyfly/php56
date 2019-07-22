@@ -5,7 +5,7 @@ class Obj
 {
     /**
      * Return class name including namespace
-     * 
+     *
      * @link https://www.php.net/manual/en/function.get-class.php
      * @param object $name
      * @throws \InvalidArgumentException

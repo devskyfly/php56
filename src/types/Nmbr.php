@@ -54,8 +54,8 @@ class Nmbr
     
     /**
      * Define whether the variable is NaN
-     * 
-     * NaN is special constant 
+     *
+     * NaN is special constant
      *
      * @link https://www.php.net/manual/en/function.is-nan.php
      * @param float $val
@@ -105,10 +105,10 @@ class Nmbr
     
     /**
      * Convert value to double
-     * 
+     *
      * It is a wrapper of core function.
      * Generate E_NOTICE and return 1 on object use.
-     * 
+     *
      * @link https://www.php.net/manual/en/function.floatval.php
      * @param mixed $val
      * @throws E_NOTICE
@@ -121,10 +121,10 @@ class Nmbr
     
     /**
      * Convert value to integer
-     * 
+     *
      * It is a wrapper of core function.
      * Generate E_NOTICE and return 1 on object use.
-     * 
+     *
      * @link https://www.php.net/manual/en/function.intval.php
      * @param mixed $val
      * @throws E_NOTICE
@@ -137,7 +137,7 @@ class Nmbr
     
     /**
      * Convert value to double in strict mode
-     * 
+     *
      * @link https://www.php.net/manual/en/function.floatval.php
      * @param mixed $val
      * @throws \InvalidArgumentException
@@ -154,7 +154,7 @@ class Nmbr
     
     /**
      * Convert value to integer in strict mode
-     * 
+     *
      * @link https://www.php.net/manual/en/function.intval.php
      * @param mixed $val
      * @throws \InvalidArgumentException
@@ -247,7 +247,7 @@ class Nmbr
             throw new \InvalidArgumentException('Param $mode is not integer.');
         }
 
-        if (($mode != self::ROUND_HALF_UP) 
+        if (($mode != self::ROUND_HALF_UP)
             && ($mode != self::ROUND_HALF_DOWN)
             && ($mode != self::ROUND_HALF_ODD)
             && ($mode != self::ROUND_HALF_EVEN)

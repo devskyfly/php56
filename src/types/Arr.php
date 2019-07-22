@@ -3,7 +3,6 @@ namespace devskyfly\php56\types;
 
 use OutOfBoundsException;
 
-
 class Arr
 {
     const ARRAY_FILTER_USE_KEY=ARRAY_FILTER_USE_KEY;
@@ -132,7 +131,7 @@ class Arr
      * Return column of passed array
      *
      * If index_key param is set, return value items would have index keys from this index key
-     * 
+     *
      * @link https://www.php.net/manual/ru/function.array-column.php
      * @param array $array
      * @param integer|string|null $column
@@ -349,7 +348,7 @@ class Arr
     
     /**
      * Aplly handler function to each array element
-     * 
+     *
      * @link https://www.php.net/manual/ru/function.array-map.php
      * @param callable $handler
      * @param array $array
@@ -389,7 +388,7 @@ class Arr
      * Create array from another by filling addition elements by value to defined size
      *
      * If $size <= size of $array only copy would return
-     * 
+     *
      * @link https://www.php.net/manual/ru/function.array-pad.php
      * @param array $array
      * @param integer $size
@@ -454,7 +453,7 @@ class Arr
      * Return first item of array, decrease array length.
      *
      * All digit keys would be edited by order from 0, all string keys save old values
-     * 
+     *
      * @link https://www.php.net/manual/ru/function.array-shift.php
      * @param array $array
      * @param mixed $item
@@ -479,7 +478,7 @@ class Arr
     
     /**
      * Product array element and return it
-     * 
+     *
      * @link https://www.php.net/manual/ru/function.array-product.php
      * @param array $array
      * @throws \InvalidArgumentException
@@ -535,7 +534,7 @@ class Arr
     
     /**
      * Return slice of array
-     * 
+     *
      * @link https://www.php.net/manual/ru/function.array-slice.php
      * @param array $array
      * @param integer $offset

@@ -55,7 +55,7 @@ class Vrbl
     
     /**
      * Define whether the variable is empty
-     * 
+     *
      * For different types empty varibles are:
      * "" - string
      * 0 - number
@@ -75,7 +75,7 @@ class Vrbl
      * Define whether the variable is scalar
      *
      * Scalar is a simple type. Array, object, null and resource are not scalar
-     * 
+     *
      * @link https://www.php.net/manual/en/function.is-scalar.php
      * @param mixed $val
      * @return boolean
@@ -124,7 +124,7 @@ class Vrbl
     
     /**
      * Return the type of PHP variable
-     * 
+     *
      * @link https://www.php.net/manual/en/function.gettype.php
      * @param mixed $val
      * @return string boolean, integer, double, string, array, object, resource, NULL, unknown type
@@ -136,8 +136,8 @@ class Vrbl
     
     /**
      * Set type of variable
-     * 
-     * @link https://www.php.net/manual/en/function.settype.php 
+     *
+     * @link https://www.php.net/manual/en/function.settype.php
      * @param mixed $val
      * @param string $type boolean, int, double, string, array, object, null
      * @return boolean
@@ -175,13 +175,13 @@ class Vrbl
     
     /**
      * Display human representation of the variable
-     * 
+     *
      * @link https://www.php.net/manual/en/function.print-r.php
      * @param mixed $val
      */
     public static function printR($val, $return = false)
     {
-        if(!Lgc::isBoolean($return)){
+        if (!Lgc::isBoolean($return)) {
             throw new \InvalidArgumentException('Param $return is not boolean type.');
         }
         return print_r($val, $return);
@@ -189,7 +189,7 @@ class Vrbl
     
     /**
      * Return human representation of the variable
-     * 
+     *
      * @link https://www.php.net/manual/en/function.print-r.php
      * @param mixed $val
      * @return string
@@ -212,14 +212,14 @@ class Vrbl
     
     /**
      * Outputs or return parsable string representation of a variable
-     * 
+     *
      * @link https://www.php.net/manual/en/function.var-export.php
      * @param mixed $val
      * @param boolean $return
      */
     public static function varExport($val, $return=false)
     {
-        if(!Lgc::isBoolean($return)){
+        if (!Lgc::isBoolean($return)) {
             throw new \InvalidArgumentException('Param $return is not boolean type.');
         }
         return var_export($val, $return);
