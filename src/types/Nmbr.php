@@ -9,6 +9,7 @@ class Nmbr
     const INT_MAX=PHP_INT_MAX;
     /**
      *
+     * @link https://www.php.net/manual/en/language.types.float.php#language.types.float.comparison
      * @param number $val_1
      * @param number $val_2
      * @throws \InvalidArgumentException
@@ -40,33 +41,34 @@ class Nmbr
     
     /**
      * Define whether the variable is NaN
+     * 
+     * NaN is special constant 
      *
+     * @link https://www.php.net/manual/en/function.is-nan.php
      * @param float $val
-     * @throws \InvalidArgumentException
      * @return boolean
      */
     public static function isNan($val)
     {
-        if (!self::isDouble($val)) {
-            throw new \InvalidArgumentException('Param val in not float type.');
-        }
-        return (is_nan($val));
+        return is_nan($val);
     }
     
     /**
      * Define whether the variable is numeric
      *
+     * @link https://www.php.net/manual/en/function.is-numeric.php
      * @param mixed $val
      * @return boolean
      */
     public static function isNumeric($val)
     {
-        return (is_numeric($val));
+        return is_numeric($val);
     }
     
     /**
      * Define whether the variable is double
      *
+     * @link https://www.php.net/manual/en/function.is-float.php
      * @param mixed $val
      * @return boolean
      */
@@ -79,17 +81,24 @@ class Nmbr
     /**
      * Define whether the variable is int
      *
+     * @link https://www.php.net/manual/en/function.is-int.php
      * @param mixed $val
      * @return boolean
      */
     public static function isInteger($val)
     {
-        return (is_Int($val));
+        return (is_int($val));
     }
     
     /**
      * Convert value to double
+     * 
+     * It is a wrapper of core function.
+     * Generate E_NOTICE and return 1 on object use.
+     * 
+     * @link https://www.php.net/manual/en/function.floatval.php
      * @param mixed $val
+     * @throws E_NOTICE
      * @return number
      */
     public static function toDouble($val)
@@ -99,7 +108,13 @@ class Nmbr
     
     /**
      * Convert value to integer
+     * 
+     * It is a wrapper of core function.
+     * Generate E_NOTICE and return 1 on object use.
+     * 
+     * @link https://www.php.net/manual/en/function.intval.php
      * @param mixed $val
+     * @throws E_NOTICE
      * @return number
      */
     public static function toInteger($val)
@@ -109,6 +124,8 @@ class Nmbr
     
     /**
      * Convert value to double in strict mode
+     * 
+     * @link https://www.php.net/manual/en/function.floatval.php
      * @param mixed $val
      * @throws \InvalidArgumentException
      * @return number
@@ -118,11 +135,14 @@ class Nmbr
         if (!self::isNumeric($val)) {
             throw new \InvalidArgumentException("Param val is not numeric.");
         }
+
         return floatval($val);
     }
     
     /**
      * Convert value to integer in strict mode
+     * 
+     * @link https://www.php.net/manual/en/function.intval.php
      * @param mixed $val
      * @throws \InvalidArgumentException
      * @return number
