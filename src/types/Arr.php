@@ -83,7 +83,7 @@ class Arr
         if (!self::isArray($array)) {
             throw new \InvalidArgumentException('Param $array is not array type.');
         }
-        return array_values();
+        return array_values($array);
     }
     
     /**
