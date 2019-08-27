@@ -53,7 +53,7 @@ use devskyfly\php56\types\Vrbl;
       */
      public static function classPropertyExists($class_obj, $property)
      {
-         $result=property_exists($class_obj, $property);
+         $result = property_exists($class_obj, $property);
          if (Vrbl::isNull($result)) {
              throw new \Exception("Property existing check error.");
          }
@@ -68,11 +68,11 @@ use devskyfly\php56\types\Vrbl;
       * @throws \Exception
       * @return boolean
       */
-     public static function classMethodExists($class_obj, $property)
+     public static function classMethodExists($class_obj, $method)
      {
-         $result=property_exists($class_obj, $property);
+         $result = method_exists($class_obj, $method);
          if (Vrbl::isNull($result)) {
-             throw new \Exception("Property existing check error.");
+             throw new \Exception("Method existing check error.");
          }
          return $result;
      }
