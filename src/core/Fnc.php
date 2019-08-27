@@ -13,7 +13,7 @@ class Fnc
      * @throws \InvalidArgumentException
      * @return boolean
      */
-    public function exists($function)
+    public static function exists($function)
     {
         if (!Str::isString($function)) {
             throw new \InvalidArgumentException('Param $function is not string type.');
