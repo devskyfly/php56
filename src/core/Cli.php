@@ -21,7 +21,7 @@ class Cli
      */
     public static function getProcessTitle()
     {
-        return cli_set_process_title($title);
+        return cli_get_process_title();
     }
 
 
