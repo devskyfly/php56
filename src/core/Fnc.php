@@ -1,7 +1,9 @@
 <?php
 namespace devskyfly\php56\core;
 
+use BadMethodCallException;
 use devskyfly\php56\types\Str;
+use RuntimeException;
 
 class Fnc
 {
@@ -9,6 +11,7 @@ class Fnc
     /**
      * Define whether the function exists
      *
+     * @link https://www.php.net/manual/en/function.function-exists.php
      * @param string $function
      * @throws \InvalidArgumentException
      * @return boolean
@@ -23,29 +26,37 @@ class Fnc
     
     /**
      * Return number of arguments passed to function
-     * @return int
+     * 
+     * Use func_num_args
+     * @link https://www.php.net/manual/en/function.func-num-args
+     * @throws \BadMethodCallException
      */
     public static function getArgumentsNmb()
     {
-        return func_num_args();
+        throw new \BadMethodCallException('User terminated method.');
     }
     
     /**
      * Return arguments passed to function in array
-     * @return array
+     * 
+     * Use func_get_args
+     * @link https://www.php.net/manual/en/function.func-get-args.php
+     * @throws \BadMethodCallException
      */
     public static function getArguments()
     {
-        return func_get_args();
+        throw new \BadMethodCallException('User terminated method.');
     }
     
     /**
      * Return argument passed to function by index
-     * @param $index
-     * @return mixed
+     * 
+     * Use func_get_arg
+     * @link https://www.php.net/manual/en/function.func-get-arg.php
+     * @throws \BadMethodCallException
      */
     public static function getArgumentByIndex($index)
     {
-        return func_get_arg($index);
+        throw new \BadMethodCallException('User terminated method.');
     }
 }

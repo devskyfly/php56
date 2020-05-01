@@ -3,15 +3,18 @@
 By historical reasons in PHP there is a big problem with functions naming.
 It's hard to remember functions names.
 
-So i try to structure functions and constants by related classes and namespaces.
+So, i try to structure functions and constants by related classes and namespaces.
 
-**N.B**  But it is impossible to redeclarate following items:
+**N.B**  I tried ... :) But it is impossible to redeclarate following items:
 
 ### Functions
 
 - isset() //check variable definition in local scope
 - unset() //delete variable link name in local scope
 - get_defined_vars() //get all defined variables
+- func_get_arg() //return function param by index
+- func_get_args() //return function params by array 
+- func_num_args() //return number of params passed to a function
 
 ### Constants
 
