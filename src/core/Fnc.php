@@ -18,7 +18,7 @@ class Fnc
         if (!Str::isString($function)) {
             throw new \InvalidArgumentException('Param $function is not string type.');
         }
-        return function_exists($function_name);
+        return function_exists($function);
     }
     
     /**

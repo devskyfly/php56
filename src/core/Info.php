@@ -65,7 +65,7 @@ class Info
      */
     public static function phpVersion($extension="")
     {
-        $result="";
+        $result = "";
         if (empty($extension)) {
             $result=phpversion($extension);
         } else {
@@ -83,7 +83,7 @@ class Info
      */
     public static function versionCompare($version1, $version2)
     {
-        return version_compare($version1, $version2, $operator);
+        return version_compare($version1, $version2);
     }
     
     /**
