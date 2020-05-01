@@ -30,7 +30,7 @@ class Script
      */
     public static function getINode()
     {
-        return getinode();
+        return getmyinode();
     }
     
     /**
